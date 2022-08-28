@@ -9,13 +9,16 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        AlbumRow()
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ForEach(["iPhone 12 Pro", "iPhone SE 3rd Generation"], id: \.self) { deviceName in
+                       ContentView()
+                            .previewDevice(PreviewDevice(rawValue: deviceName))
+                            .previewDisplayName(deviceName)
     }
+}
 }

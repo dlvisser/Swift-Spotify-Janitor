@@ -115,13 +115,11 @@
 			isa = PBXGroup;
 			children = (
 				D4C846A528B802F4000B2C2F /* Swift_Spotify_JanitorApp.swift */,
-				D4C846A728B802F4000B2C2F /* ContentView.swift */,
 				D4C846A928B802F6000B2C2F /* Assets.xcassets */,
 				D4C846AB28B802F6000B2C2F /* Preview Content */,
 				D4C846D528B80959000B2C2F /* Resources */,
-				D4C846D628B811DC000B2C2F /* AlbumRow.swift */,
+				D4E6258128BBF1DF009EAC2A /* Views */,
 				D4E6256C28BBBCB3009EAC2A /* Model */,
-				D4E6257528BBC0A7009EAC2A /* AlbumList.swift */,
 			);
 			path = "Swift Spotify Janitor";
 			sourceTree = "<group>";
@@ -163,14 +161,48 @@
 		D4E6256C28BBBCB3009EAC2A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D4E6257F28BBF1AA009EAC2A /* Album */,
+				D4E6258028BBF1B5009EAC2A /* Helper */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		D4E6257F28BBF1AA009EAC2A /* Album */ = {
+			isa = PBXGroup;
+			children = (
 				D4E6256A28BBB9C1009EAC2A /* AlbumItem.swift */,
 				D4E6256D28BBBCC8009EAC2A /* Album.swift */,
 				D4E6257128BBBEF3009EAC2A /* ModelData.swift */,
 				D4E6257928BBC753009EAC2A /* AlbumResponse.swift */,
 				D4E6257B28BBE226009EAC2A /* Artist.swift */,
+			);
+			path = Album;
+			sourceTree = "<group>";
+		};
+		D4E6258028BBF1B5009EAC2A /* Helper */ = {
+			isa = PBXGroup;
+			children = (
 				D4E6257D28BBE5FD009EAC2A /* Images.swift */,
 			);
-			path = Model;
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		D4E6258128BBF1DF009EAC2A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D4C846A728B802F4000B2C2F /* ContentView.swift */,
+				D4E6258228BBF1E9009EAC2A /* Album */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D4E6258228BBF1E9009EAC2A /* Album */ = {
+			isa = PBXGroup;
+			children = (
+				D4C846D628B811DC000B2C2F /* AlbumRow.swift */,
+				D4E6257528BBC0A7009EAC2A /* AlbumList.swift */,
+			);
+			path = Album;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

@@ -17,6 +17,8 @@
 		D4C846D228B8065C000B2C2F /* AccountInfo.json in Resources */ = {isa = PBXBuildFile; fileRef = D4C846D128B8065C000B2C2F /* AccountInfo.json */; };
 		D4C846D428B80943000B2C2F /* AccountSavedAlbums.json in Resources */ = {isa = PBXBuildFile; fileRef = D4C846D328B80943000B2C2F /* AccountSavedAlbums.json */; };
 		D4C846D728B811DC000B2C2F /* AlbumRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C846D628B811DC000B2C2F /* AlbumRow.swift */; };
+		D4E6256B28BBB9C1009EAC2A /* AlbumItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6256A28BBB9C1009EAC2A /* AlbumItem.swift */; };
+		D4E6256E28BBBCC8009EAC2A /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6256D28BBBCC8009EAC2A /* Album.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +52,8 @@
 		D4C846D128B8065C000B2C2F /* AccountInfo.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AccountInfo.json; sourceTree = "<group>"; };
 		D4C846D328B80943000B2C2F /* AccountSavedAlbums.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = AccountSavedAlbums.json; sourceTree = "<group>"; };
 		D4C846D628B811DC000B2C2F /* AlbumRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumRow.swift; sourceTree = "<group>"; };
+		D4E6256A28BBB9C1009EAC2A /* AlbumItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumItem.swift; sourceTree = "<group>"; };
+		D4E6256D28BBBCC8009EAC2A /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +110,7 @@
 				D4C846AB28B802F6000B2C2F /* Preview Content */,
 				D4C846D528B80959000B2C2F /* Resources */,
 				D4C846D628B811DC000B2C2F /* AlbumRow.swift */,
+				D4E6256C28BBBCB3009EAC2A /* Model */,
 			);
 			path = "Swift Spotify Janitor";
 			sourceTree = "<group>";
@@ -142,6 +147,15 @@
 				D4C846D328B80943000B2C2F /* AccountSavedAlbums.json */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		D4E6256C28BBBCB3009EAC2A /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				D4E6256A28BBB9C1009EAC2A /* AlbumItem.swift */,
+				D4E6256D28BBBCC8009EAC2A /* Album.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,7 +292,9 @@
 			files = (
 				D4C846A828B802F4000B2C2F /* ContentView.swift in Sources */,
 				D4C846A628B802F4000B2C2F /* Swift_Spotify_JanitorApp.swift in Sources */,
+				D4E6256B28BBB9C1009EAC2A /* AlbumItem.swift in Sources */,
 				D4C846D728B811DC000B2C2F /* AlbumRow.swift in Sources */,
+				D4E6256E28BBBCC8009EAC2A /* Album.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

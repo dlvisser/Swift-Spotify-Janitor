@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        AlbumRow()
+        AlbumList()
     }
 }
 
@@ -19,6 +19,7 @@ struct ContentView_Previews: PreviewProvider {
                        ContentView()
                             .previewDevice(PreviewDevice(rawValue: deviceName))
                             .previewDisplayName(deviceName)
+                            .environmentObject(ModelData())
     }
 }
 }

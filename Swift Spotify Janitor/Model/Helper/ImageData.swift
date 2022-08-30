@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Images: Codable{
+struct ImageData: Codable{
     var height: Int
     var width: Int
     var url: String

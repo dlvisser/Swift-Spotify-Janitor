@@ -16,7 +16,7 @@ struct Album: Codable, Identifiable{
     var uri : String
     var label: String
     var releaseDate : String
-    var images: [Images]
+    var images: [ImageData]
     
     private enum CodingKeys: String, CodingKey{
         case albumType = "album_type", artists, id, name, popularity, uri, label, releaseDate = "release_date", images

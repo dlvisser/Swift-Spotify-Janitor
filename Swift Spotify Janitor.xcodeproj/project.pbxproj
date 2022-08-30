@@ -23,7 +23,8 @@
 		D4E6257628BBC0A7009EAC2A /* AlbumList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6257528BBC0A7009EAC2A /* AlbumList.swift */; };
 		D4E6257A28BBC753009EAC2A /* AlbumResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6257928BBC753009EAC2A /* AlbumResponse.swift */; };
 		D4E6257C28BBE226009EAC2A /* Artist.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6257B28BBE226009EAC2A /* Artist.swift */; };
-		D4E6257E28BBE5FD009EAC2A /* Images.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6257D28BBE5FD009EAC2A /* Images.swift */; };
+		D4E6257E28BBE5FD009EAC2A /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6257D28BBE5FD009EAC2A /* ImageData.swift */; };
+		D4E9E40D28BE970D00E92472 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E9E40C28BE970D00E92472 /* Profile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,7 +64,8 @@
 		D4E6257528BBC0A7009EAC2A /* AlbumList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumList.swift; sourceTree = "<group>"; };
 		D4E6257928BBC753009EAC2A /* AlbumResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumResponse.swift; sourceTree = "<group>"; };
 		D4E6257B28BBE226009EAC2A /* Artist.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Artist.swift; sourceTree = "<group>"; };
-		D4E6257D28BBE5FD009EAC2A /* Images.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Images.swift; sourceTree = "<group>"; };
+		D4E6257D28BBE5FD009EAC2A /* ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
+		D4E9E40C28BE970D00E92472 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 			children = (
 				D4E6257F28BBF1AA009EAC2A /* Album */,
 				D4E6258028BBF1B5009EAC2A /* Helper */,
+				D4E9E40C28BE970D00E92472 /* Profile.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -182,7 +185,7 @@
 		D4E6258028BBF1B5009EAC2A /* Helper */ = {
 			isa = PBXGroup;
 			children = (
-				D4E6257D28BBE5FD009EAC2A /* Images.swift */,
+				D4E6257D28BBE5FD009EAC2A /* ImageData.swift */,
 			);
 			path = Helper;
 			sourceTree = "<group>";
@@ -344,7 +347,8 @@
 				D4E6256B28BBB9C1009EAC2A /* AlbumItem.swift in Sources */,
 				D4C846D728B811DC000B2C2F /* AlbumRow.swift in Sources */,
 				D4E6256E28BBBCC8009EAC2A /* Album.swift in Sources */,
-				D4E6257E28BBE5FD009EAC2A /* Images.swift in Sources */,
+				D4E6257E28BBE5FD009EAC2A /* ImageData.swift in Sources */,
+				D4E9E40D28BE970D00E92472 /* Profile.swift in Sources */,
 				D4E6257A28BBC753009EAC2A /* AlbumResponse.swift in Sources */,
 				D4E6257228BBBEF3009EAC2A /* ModelData.swift in Sources */,
 			);

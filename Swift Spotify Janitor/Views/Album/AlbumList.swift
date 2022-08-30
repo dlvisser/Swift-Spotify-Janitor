@@ -11,12 +11,11 @@ struct AlbumList: View {
     @EnvironmentObject var modelData : ModelData
     
     var body: some View {
-        NavigationView{
-            ScrollView{
-                    ForEach(modelData.albumResponse.aItems, id: \.album.id){ albumItem in
-                        AlbumRow(album: albumItem.album)
-                    }
-            }.navigationTitle("Albums")
+        ScrollView{
+            ForEach(modelData.albumResponse.aItems, id: \.album.id){ albumItem in
+                AlbumRow(album: albumItem.album)
+            }
+            .navigationTitle("Albums")
         }
     }
 }

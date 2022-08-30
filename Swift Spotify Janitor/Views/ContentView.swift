@@ -9,17 +9,29 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        AlbumList()
+        NavigationView{
+            VStack{
+                ProfileTag()
+                List{
+                    Section("Favorites"){
+                        NavigationLink(destination: AlbumList()){
+                            Label("Albums", systemImage: "folder")
+                        }
+                    }
+                }
+            }
+            .navigationTitle("").navigationBarHidden(true)
+        }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(["iPhone 12 Pro", "iPhone SE 3rd Generation"], id: \.self) { deviceName in
-                       ContentView()
-                            .previewDevice(PreviewDevice(rawValue: deviceName))
-                            .previewDisplayName(deviceName)
-                            .environmentObject(ModelData())
+            ContentView()
+                .previewDevice(PreviewDevice(rawValue: deviceName))
+                .previewDisplayName(deviceName)
+                .environmentObject(ModelData())
+        }
     }
-}
 }

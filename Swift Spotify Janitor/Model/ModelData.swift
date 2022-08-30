@@ -10,6 +10,7 @@ import Combine
 
 final class ModelData : ObservableObject{
     @Published var albumResponse: AlbumResponse = load("AccountSavedAlbums.json")
+    @Published var accountInfo : ProfileData = load("AccountInfo.json")
 }
 
 func load<T: Decodable>(_ filename: String) -> T {

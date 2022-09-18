@@ -46,6 +46,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D45C0F5728D7225C007F6047 /* Swift-Spotify-Janitor-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Swift-Spotify-Janitor-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D4C846A228B802F4000B2C2F /* Swift Spotify Janitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift Spotify Janitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4C846A528B802F4000B2C2F /* Swift_Spotify_JanitorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Spotify_JanitorApp.swift; sourceTree = "<group>"; };
 		D4C846A728B802F4000B2C2F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -118,6 +119,7 @@
 		D4C846A428B802F4000B2C2F /* Swift Spotify Janitor */ = {
 			isa = PBXGroup;
 			children = (
+				D45C0F5728D7225C007F6047 /* Swift-Spotify-Janitor-Info.plist */,
 				D4C846A528B802F4000B2C2F /* Swift_Spotify_JanitorApp.swift */,
 				D4C846A928B802F6000B2C2F /* Assets.xcassets */,
 				D4C846AB28B802F6000B2C2F /* Preview Content */,
@@ -532,6 +534,7 @@
 				DEVELOPMENT_TEAM = HLF2PH784R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Swift-Spotify-Janitor-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -561,6 +564,7 @@
 				DEVELOPMENT_TEAM = HLF2PH784R;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Swift-Spotify-Janitor-Info.plist";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

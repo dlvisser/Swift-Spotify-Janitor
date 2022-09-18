@@ -17,4 +17,6 @@ struct ProfileData : Codable{
     private enum CodingKeys: String, CodingKey{
         case displayName = "display_name", email, images, product, uri
     }
+    
+    static let sample = ProfileData(displayName: "Spotify User", email: "spotify@spotifytest.nl", images: [ImageData(height: 50, width: 50, url: "https://developer.spotify.com/assets/branding-guidelines/icon3@2x.png")], product: "Spotify free", uri: "")
 }

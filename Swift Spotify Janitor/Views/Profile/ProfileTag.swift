@@ -21,6 +21,7 @@ struct ProfileTag: View {
             }.padding(.top)
             Spacer()
         }
+        .onAppear(perform: { modelData.loadProfileData()})
     }
 }
 

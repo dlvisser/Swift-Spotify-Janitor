@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D466992F28E8CC0B00E366C7 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D466992E28E8CC0B00E366C7 /* MainScreen.swift */; };
+		D466993128E8CCA700E366C7 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D466993028E8CCA700E366C7 /* LoginScreen.swift */; };
+		D466993328E8CD4400E366C7 /* DevelopmentConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D466993228E8CD4400E366C7 /* DevelopmentConstants.swift */; };
 		D4C846A628B802F4000B2C2F /* Swift_Spotify_JanitorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C846A528B802F4000B2C2F /* Swift_Spotify_JanitorApp.swift */; };
 		D4C846A828B802F4000B2C2F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C846A728B802F4000B2C2F /* ContentView.swift */; };
 		D4C846AA28B802F6000B2C2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4C846A928B802F6000B2C2F /* Assets.xcassets */; };
@@ -47,6 +50,9 @@
 
 /* Begin PBXFileReference section */
 		D45C0F5728D7225C007F6047 /* Swift-Spotify-Janitor-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Swift-Spotify-Janitor-Info.plist"; sourceTree = SOURCE_ROOT; };
+		D466992E28E8CC0B00E366C7 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
+		D466993028E8CCA700E366C7 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
+		D466993228E8CD4400E366C7 /* DevelopmentConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevelopmentConstants.swift; sourceTree = "<group>"; };
 		D4C846A228B802F4000B2C2F /* Swift Spotify Janitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift Spotify Janitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4C846A528B802F4000B2C2F /* Swift_Spotify_JanitorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Spotify_JanitorApp.swift; sourceTree = "<group>"; };
 		D4C846A728B802F4000B2C2F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -96,6 +102,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D466992D28E8CBDC00E366C7 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				D466992E28E8CC0B00E366C7 /* MainScreen.swift */,
+				D466993028E8CCA700E366C7 /* LoginScreen.swift */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
 		D4C8469928B802F4000B2C2F = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +134,7 @@
 		D4C846A428B802F4000B2C2F /* Swift Spotify Janitor */ = {
 			isa = PBXGroup;
 			children = (
+				D466992D28E8CBDC00E366C7 /* Screens */,
 				D45C0F5728D7225C007F6047 /* Swift-Spotify-Janitor-Info.plist */,
 				D4C846A528B802F4000B2C2F /* Swift_Spotify_JanitorApp.swift */,
 				D4C846A928B802F6000B2C2F /* Assets.xcassets */,
@@ -160,6 +176,7 @@
 			children = (
 				D4C846D128B8065C000B2C2F /* AccountInfo.json */,
 				D4C846D328B80943000B2C2F /* AccountSavedAlbums.json */,
+				D466993228E8CD4400E366C7 /* DevelopmentConstants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -364,13 +381,16 @@
 				D4E9E41028BE9A1B00E92472 /* ProfileTag.swift in Sources */,
 				D4C846A828B802F4000B2C2F /* ContentView.swift in Sources */,
 				D4C846A628B802F4000B2C2F /* Swift_Spotify_JanitorApp.swift in Sources */,
+				D466993328E8CD4400E366C7 /* DevelopmentConstants.swift in Sources */,
 				D4E6257628BBC0A7009EAC2A /* AlbumList.swift in Sources */,
 				D4E6257C28BBE226009EAC2A /* Artist.swift in Sources */,
+				D466992F28E8CC0B00E366C7 /* MainScreen.swift in Sources */,
 				D4E6256B28BBB9C1009EAC2A /* AlbumItem.swift in Sources */,
 				D4C846D728B811DC000B2C2F /* AlbumRow.swift in Sources */,
 				D4E6256E28BBBCC8009EAC2A /* Album.swift in Sources */,
 				D4E6257E28BBE5FD009EAC2A /* ImageData.swift in Sources */,
 				D4E9E40D28BE970D00E92472 /* Profile.swift in Sources */,
+				D466993128E8CCA700E366C7 /* LoginScreen.swift in Sources */,
 				D4E6257A28BBC753009EAC2A /* AlbumResponse.swift in Sources */,
 				D4E6257228BBBEF3009EAC2A /* ModelData.swift in Sources */,
 			);

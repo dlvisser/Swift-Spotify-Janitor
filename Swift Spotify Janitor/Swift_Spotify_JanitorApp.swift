@@ -16,7 +16,8 @@ struct Swift_Spotify_JanitorApp: App {
             ContentView()
                 .environmentObject(modelData)
                 .onOpenURL(perform: { url in
-                    openURL(url: url)
+                    modelData.userAuthToken = openURL(url: url)
+                    print("Modeldata: \(modelData.userAuthToken)")
                 })
         }
     }

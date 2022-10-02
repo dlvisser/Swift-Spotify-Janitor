@@ -11,6 +11,7 @@ import Combine
 final class ModelData : ObservableObject{
     @Published var albumResponse : AlbumResponse = AlbumResponse.sample
     @Published var accountInfo : ProfileData = ProfileData.sample
+    @Published var userAuthToken : String = "Empty"
     
     func loadProfileData() {
         guard let url = URL(string: "https://api.spotify.com/v1/me") else{

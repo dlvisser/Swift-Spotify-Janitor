@@ -29,32 +29,47 @@ struct LoginScreen: View {
                 .edgesIgnoringSafeArea(.all)
                 VStack {
                     Text("Let's start cleaning up")
-                        .font(.largeTitle)
+                        .font(Font.custom("Poppins-ExtraBold", size: 40))
                         .fontWeight(.black)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal)
                     Spacer()
-                    if modelData.userAuthToken != "Empty"{
-                        Text("Succes!")
-                    }else{
-                        Text("No token provided!")
+                    ZStack{
+                        Image("taya-iv-sBr-g8wJw5k-unsplash")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 256, height: 256)
+                            .clipped()
+                            .clipShape(Rectangle())
+                        Rectangle()
+                            .frame(width: 256, height: 256)
+                            .foregroundStyle(AppColorConstants.imageGradient)
                     }
                     Spacer()
-                    Button(action: openSpotifyAuthentication)
-                    {
-                        Text("Login to Spotify")
-                            .font(.title.bold())
-                            .foregroundColor(.green)
+                    Text("This Spotify Janitor is in no way affiliated with Spotify AB.")
+                        .font(Font.custom("Poppins-light", size: 14))
+                        .padding(.all)
+                        .multilineTextAlignment(.center)
+                    Button(action: openSpotifyAuthentication){
+                        HStack{
+                            Text("Log in with")
+                                .font(Font.custom("Poppins-ExtraBold", size: 24))
+                                .foregroundColor(AppColorConstants.spotifyWhiteColor)
+                            Image("Spotify_Logo_RGB_White")
+                                .resizable()
+                                .frame(width: 140, height: 42)
+                        }.padding(.all)
                     }
-                    Spacer()
+                    .background(AppColorConstants.spotifyGreenColor)
+                    .cornerRadius(40)
                     NavigationLink(destination: mainScreen,
                                    isActive: $isActive,
                                    label: { EmptyView() })
-                    }
+                }
                 .onChange(of: networkManager.accessToken){ newToken in
                     navigateToMain()}
-                }
             }
+        }
         .navigationBarBackButtonHidden(true)
         .preferredColorScheme(.dark)
     }

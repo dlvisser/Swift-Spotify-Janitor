@@ -8,20 +8,24 @@
 import SwiftUI
 
 struct MainScreen: View {
+    
     var body: some View {
-        NavigationView{
-            VStack{
-                ProfileTag()
-                List{
-                    Section("Favorites"){
-                        NavigationLink(destination: AlbumList()){
-                            Label("Albums", systemImage: "folder")
-                        }
-                    }
+        TabView{
+            AlbumScreen()
+                .tabItem{
+                    Label("Albums", image: "albums")
                 }
-            }
-            .navigationTitle("").navigationBarHidden(true)
+            TrackScreen()
+                .tabItem{
+                    Label("Tracks", image: "tracks")
+                }
+            ProfileScreen()
+                .tabItem{
+                    Label("Profile", image: "profile")
+                }
         }
+        .accentColor(AppColorConstants.spotifyWhiteColor)
+        .preferredColorScheme(.dark)
         .navigationBarBackButtonHidden(true)
     }
 }

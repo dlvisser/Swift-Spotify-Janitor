@@ -24,7 +24,7 @@ struct AlbumRow: View {
                     .font(Font.custom("Poppins-Regular", size: 16))
                     .foregroundColor(.gray)
                 Spacer()
-                Button(action: {}){
+                Button(action: {openSpotifyLink(albumUri: album.uri)}){
                     HStack{
                         Image("Spotify_Icon_RGB_White")
                             .resizable()
@@ -43,7 +43,11 @@ struct AlbumRow: View {
             Spacer()
         }
         .frame(height: 128)
-        .padding(.bottom, -4.0)
+        .padding(.bottom, 4.0)
+    }
+    
+    func openSpotifyLink(albumUri : String){
+        UIApplication.shared.open(URL(string:albumUri)!)
     }
 }
 

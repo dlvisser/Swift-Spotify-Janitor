@@ -16,6 +16,7 @@ struct DevelopmentConstant{
 struct AppColorConstants{
     static let backgroundColor = spotifyDarkColor
     static let backgroundGradient = LinearGradient(colors: [spotifyGreenColor.opacity(0.4),spotifyDarkColor.opacity(0.4)], startPoint: .top, endPoint: .bottom)
+    static let imageGradient = LinearGradient(colors: [spotifyGreenColor.opacity(0.2),spotifyDarkColor.opacity(0.4)], startPoint: .top, endPoint: .bottom)
     static let spotifyDarkColor = Color.init(hex: "191414")
     static let spotifyGreenColor = Color.init(hex: "1DB954")
     static let spotifyWhiteColor = Color.init(hex: "FFFFFF")

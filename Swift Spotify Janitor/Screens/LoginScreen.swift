@@ -11,29 +11,54 @@ struct LoginScreen: View {
     @EnvironmentObject var modelData : ModelData
     
     var body: some View {
-        VStack {
-            Text("Swift Spotify Janitor")
-                .font(.largeTitle)
-                .fontWeight(.black)
-                .foregroundColor(Color.green)
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding(.horizontal)
-            Spacer()
-            if modelData.userAuthToken != "Empty"{
-                Text("Succes!")
-            }else{
-                Text("No token provided!")
-            }
-            Spacer()
-            Button(action: {
-                UIApplication.shared.open(URL(string: "https://accounts.spotify.com/en/authorize?client_id=db3571c8b48049b595fa9acb17be9d3a&response_type=code&redirect_uri=swiftspotifyjanitor://callback&scope=user-read-email%20user-read-private%20user-library-read&show_dialog=true")!)
-            })
-            {
-                Text("Login to Spotify")
-                    .font(.title.bold())
-                    .foregroundColor(.green)
+        NavigationView {
+            
+            ZStack{
+                ZStack(alignment: .top){
+                    AppColorConstants.backgroundColor
+                    GeometryReader{ geo in
+                        Rectangle()
+                            .fill(AppColorConstants.backgroundGradient)
+                            .frame(width: .infinity, height: geo.size.height/3)
+                    }
+                }
+                .edgesIgnoringSafeArea(.all)
+                VStack {
+                    Text("Let's start cleaning up")
+                        .font(.largeTitle)
+                        .fontWeight(.black)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal)
+                    Spacer()
+                    if modelData.userAuthToken != "Empty"{
+                        Text("Succes!")
+                    }else{
+                        Text("No token provided!")
+                    }
+                    Spacer()
+                    Button(action: openSpotifyAuthentication)
+                    {
+                        Text("Login to Spotify")
+                            .font(.title.bold())
+                            .foregroundColor(.green)
+                    }
+                    Spacer()
+                    if(NetworkManager().accessToken.accessToken != ""){
+                        NavigationLink("Navigate to Main", destination: MainScreen())
+                    }
+                }
             }
         }
+        .navigationBarBackButtonHidden(true)
+        .preferredColorScheme(.dark)
+    }
+    
+    func openSpotifyAuthentication(){
+        UIApplication.shared.open(URL(string: "https://accounts.spotify.com/en/authorize?client_id=db3571c8b48049b595fa9acb17be9d3a&response_type=code&redirect_uri=swiftspotifyjanitor://callback&scope=user-read-email%20user-read-private%20user-library-read&show_dialog=true")!)
+    }
+    
+    func navigateToMain(){
+        
     }
 }
 

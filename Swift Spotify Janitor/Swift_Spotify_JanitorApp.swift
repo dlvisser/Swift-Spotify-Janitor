@@ -17,7 +17,8 @@ struct Swift_Spotify_JanitorApp: App {
                 .environmentObject(modelData)
                 .onOpenURL(perform: { url in
                     modelData.userAuthToken = openURL(url: url)
-                    print("Modeldata: \(modelData.userAuthToken)")
+                    NetworkManager.shared.requestNewAccessToken(authToken: modelData.userAuthToken)
+                    print("AccessToken: \(NetworkManager().accessToken.accessToken)")
                 })
         }
     }

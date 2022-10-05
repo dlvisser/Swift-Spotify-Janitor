@@ -1,0 +1,21 @@
+//
+//  AccessTokenResponse.swift
+//  Swift Spotify Janitor
+//
+//  Created by Dave Visser on 19/09/2022.
+//
+
+import Foundation
+
+struct AccessTokenResponse: Decodable{
+    var accessToken : String
+    var tokenType : String
+    var expiresAt : Int
+    var scope : String
+    
+    private enum CodingKeys : String, CodingKey{
+        case accessToken = "access_token", tokenType = "token_type", expiresAt = "expires_in", scope
+    }
+    
+    static let sample = AccessTokenResponse(accessToken: "", tokenType: "", expiresAt: 0, scope: "")
+}

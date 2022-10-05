@@ -15,20 +15,35 @@ struct AlbumRow: View {
             AsyncImage(url: URL(string: album.images[1].url)){ image in image.resizable()} placeholder: {
                 ProgressView()
             }
-            .frame(width: 80, height: 80)
+            .frame(width: 128, height: 128)
             VStack(alignment: .leading){
                 Text(album.name)
-                    .font(.title.bold())
+                    .font(Font.custom("Poppins-ExtraBold", size: 16))
                     .lineLimit(1)
                 Text(album.artists[0].name)
-                    .font(.subheadline)
+                    .font(Font.custom("Poppins-Regular", size: 16))
                     .foregroundColor(.gray)
+                Spacer()
+                Button(action: {}){
+                    HStack{
+                        Image("Spotify_Icon_RGB_White")
+                            .resizable()
+                            .frame(width: 24, height: 24)
+                        Text("Open Spotify")
+                            .font(Font.custom("Poppins-ExtraBold", size: 12))
+                            .foregroundColor(AppColorConstants.spotifyWhiteColor)
+                      
+                    }
+                    .padding(/*@START_MENU_TOKEN@*/.all, 6.0/*@END_MENU_TOKEN@*/)
+                }
+                .background(AppColorConstants.spotifyGreenColor)
+                .cornerRadius(40)
             }
+            .padding(.leading)
             Spacer()
         }
+        .frame(height: 128)
         .padding(.bottom, -4.0)
-        
-        
     }
 }
 

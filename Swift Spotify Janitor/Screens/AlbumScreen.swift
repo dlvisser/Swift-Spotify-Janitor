@@ -24,13 +24,7 @@ struct AlbumScreen: View {
                     .font(Font.custom("Poppins-ExtraBold", size: 32))
                     .multilineTextAlignment(.leading)
                 Spacer()
-                //                List{
-                //                    Section("Favorites"){
-                //                        NavigationLink(destination: AlbumList()){
-                //                            Label("Albums", systemImage: "folder")
-                //                        }
-                //                    }
-                //                }
+                AlbumList()
             }
         }
         .preferredColorScheme(.dark)

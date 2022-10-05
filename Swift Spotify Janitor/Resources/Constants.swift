@@ -10,7 +10,7 @@ import SwiftUI
 
 struct DevelopmentConstant{
     
-    static let previewdevices = ["iPhone 12 Pro", "iPhone 13 Pro"]
+    static let previewdevices = ["iPhone 12 Pro", "iPhone 14 Pro Max"]
 }
 
 struct AppColorConstants{

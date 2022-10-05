@@ -34,19 +34,22 @@ struct LoginScreen: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal)
                     Spacer()
-                    if modelData.userAuthToken != "Empty"{
-                        Text("Succes!")
-                    }else{
-                        Text("No token provided!")
+                    Text("This Spotify Janitor is in no way affiliated with Spotify AB.")
+                        .font(.body.weight(Font.Weight.thin))
+                        .padding(.all)
+                        .multilineTextAlignment(.center)
+                    Button(action: openSpotifyAuthentication){
+                        HStack{
+                            Text("Log in with")
+                                .font(.body.bold())
+                                .foregroundColor(AppColorConstants.spotifyWhiteColor)
+                            Image("Spotify_Logo_RGB_White")
+                                .resizable()
+                                .frame(width: 140, height: 42)
+                        }.padding(.all)
                     }
-                    Spacer()
-                    Button(action: openSpotifyAuthentication)
-                    {
-                        Text("Login to Spotify")
-                            .font(.title.bold())
-                            .foregroundColor(.green)
-                    }
-                    Spacer()
+                    .background(AppColorConstants.spotifyGreenColor)
+                    .cornerRadius(40)
                     NavigationLink(destination: mainScreen,
                                    isActive: $isActive,
                                    label: { EmptyView() })

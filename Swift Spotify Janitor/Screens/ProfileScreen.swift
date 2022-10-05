@@ -20,13 +20,13 @@ struct ProfileScreen: View {
             }
             .edgesIgnoringSafeArea(.all)
             VStack(alignment: .leading){
-                Text("This should be your profile... Right?")
+                Text("This should be you... Right?")
                     .font(Font.custom("Poppins-ExtraBold", size: 32))
                     .multilineTextAlignment(.leading)
-                    
-                Spacer()
                 ProfileTag()
+                Spacer()
             }
+            .padding(.horizontal)
         }
         .preferredColorScheme(.dark)
     }

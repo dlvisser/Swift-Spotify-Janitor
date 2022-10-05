@@ -9,17 +9,21 @@ import SwiftUI
 
 struct LoginScreen: View {
     @EnvironmentObject var modelData : ModelData
+    @StateObject var networkManager = NetworkManager.shared
+    @State private var isActive = false
+    let mainScreen = MainScreen()
+    
+    
     
     var body: some View {
         NavigationView {
-            
             ZStack{
                 ZStack(alignment: .top){
                     AppColorConstants.backgroundColor
                     GeometryReader{ geo in
                         Rectangle()
                             .fill(AppColorConstants.backgroundGradient)
-                            .frame(width: .infinity, height: geo.size.height/3)
+                            .frame(width: geo.size.width, height: geo.size.height/3)
                     }
                 }
                 .edgesIgnoringSafeArea(.all)
@@ -43,12 +47,14 @@ struct LoginScreen: View {
                             .foregroundColor(.green)
                     }
                     Spacer()
-                    if(NetworkManager().accessToken.accessToken != ""){
-                        NavigationLink("Navigate to Main", destination: MainScreen())
+                    NavigationLink(destination: mainScreen,
+                                   isActive: $isActive,
+                                   label: { EmptyView() })
                     }
+                .onChange(of: networkManager.accessToken){ newToken in
+                    navigateToMain()}
                 }
             }
-        }
         .navigationBarBackButtonHidden(true)
         .preferredColorScheme(.dark)
     }
@@ -58,7 +64,7 @@ struct LoginScreen: View {
     }
     
     func navigateToMain(){
-        
+        self.isActive = true
     }
 }
 

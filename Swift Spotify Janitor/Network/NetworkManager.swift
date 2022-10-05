@@ -7,7 +7,7 @@
 
 import Foundation
 
-class NetworkManager{
+class NetworkManager : ObservableObject{
     
     static let shared = NetworkManager()
     private var clientId : String = "db3571c8b48049b595fa9acb17be9d3a"
@@ -44,6 +44,7 @@ class NetworkManager{
                 }
                 do{
                     self.accessToken = try JSONDecoder().decode(AccessTokenResponse.self, from: data)
+                    print(self.accessToken.accessToken)
                 }catch{
                     print("No token found")
                 }

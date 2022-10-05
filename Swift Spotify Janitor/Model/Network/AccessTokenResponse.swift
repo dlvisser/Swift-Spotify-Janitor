@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct AccessTokenResponse: Decodable{
+struct AccessTokenResponse: Decodable, Hashable{
     var accessToken : String
     var tokenType : String
     var expiresAt : Int

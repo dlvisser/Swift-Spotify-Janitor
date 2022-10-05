@@ -10,14 +10,12 @@ import SwiftUI
 struct SplashScreen: View {
     @State private var isActive = false
     let login = LoginScreen()
-    let color = Color.init(hex: "191414")
 
     var body: some View {
- 
             NavigationView {
                 ZStack{
                     ZStack{
-                        color
+                        AppColorConstants.backgroundColor
                     }
                     .edgesIgnoringSafeArea(.all)
                 VStack(alignment: .center) {

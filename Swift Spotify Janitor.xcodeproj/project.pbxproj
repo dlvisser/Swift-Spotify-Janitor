@@ -24,6 +24,10 @@
 		D4C846D728B811DC000B2C2F /* AlbumRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C846D628B811DC000B2C2F /* AlbumRow.swift */; };
 		D4DBA42528ED8DBD00CEF5D9 /* SplashScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DBA42428ED8DBD00CEF5D9 /* SplashScreen.swift */; };
 		D4DBA42828ED8F2D00CEF5D9 /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4DBA42728ED8F2D00CEF5D9 /* ColorExtension.swift */; };
+		D4DBA44128EDC69600CEF5D9 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = D4DBA42E28EDC69500CEF5D9 /* OFL.txt */; };
+		D4DBA44728EDC69600CEF5D9 /* Poppins-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4DBA43428EDC69500CEF5D9 /* Poppins-Regular.ttf */; };
+		D4DBA44D28EDC69600CEF5D9 /* Poppins-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4DBA43A28EDC69500CEF5D9 /* Poppins-ExtraBold.ttf */; };
+		D4DBA44F28EDC69600CEF5D9 /* Poppins-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D4DBA43C28EDC69600CEF5D9 /* Poppins-Light.ttf */; };
 		D4E6256B28BBB9C1009EAC2A /* AlbumItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6256A28BBB9C1009EAC2A /* AlbumItem.swift */; };
 		D4E6256E28BBBCC8009EAC2A /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6256D28BBBCC8009EAC2A /* Album.swift */; };
 		D4E6257228BBBEF3009EAC2A /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6257128BBBEF3009EAC2A /* ModelData.swift */; };
@@ -74,6 +78,10 @@
 		D4C846D628B811DC000B2C2F /* AlbumRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumRow.swift; sourceTree = "<group>"; };
 		D4DBA42428ED8DBD00CEF5D9 /* SplashScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreen.swift; sourceTree = "<group>"; };
 		D4DBA42728ED8F2D00CEF5D9 /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		D4DBA42E28EDC69500CEF5D9 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		D4DBA43428EDC69500CEF5D9 /* Poppins-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Regular.ttf"; sourceTree = "<group>"; };
+		D4DBA43A28EDC69500CEF5D9 /* Poppins-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-ExtraBold.ttf"; sourceTree = "<group>"; };
+		D4DBA43C28EDC69600CEF5D9 /* Poppins-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Poppins-Light.ttf"; sourceTree = "<group>"; };
 		D4E6256A28BBB9C1009EAC2A /* AlbumItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumItem.swift; sourceTree = "<group>"; };
 		D4E6256D28BBBCC8009EAC2A /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		D4E6257128BBBEF3009EAC2A /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
@@ -145,6 +153,7 @@
 				D4C846A328B802F4000B2C2F /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		D4C846A328B802F4000B2C2F /* Products */ = {
 			isa = PBXGroup;
@@ -159,6 +168,7 @@
 		D4C846A428B802F4000B2C2F /* Swift Spotify Janitor */ = {
 			isa = PBXGroup;
 			children = (
+				D4DBA42C28EDC65F00CEF5D9 /* Fonts */,
 				D4DBA42628ED8F1900CEF5D9 /* Extensions */,
 				D4123B7E28E9F52F007EA79B /* Network */,
 				D466992D28E8CBDC00E366C7 /* Screens */,
@@ -214,6 +224,17 @@
 				D4DBA42728ED8F2D00CEF5D9 /* ColorExtension.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D4DBA42C28EDC65F00CEF5D9 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				D4DBA42E28EDC69500CEF5D9 /* OFL.txt */,
+				D4DBA43A28EDC69500CEF5D9 /* Poppins-ExtraBold.ttf */,
+				D4DBA43C28EDC69600CEF5D9 /* Poppins-Light.ttf */,
+				D4DBA43428EDC69500CEF5D9 /* Poppins-Regular.ttf */,
+			);
+			path = Fonts;
 			sourceTree = "<group>";
 		};
 		D4E6256C28BBBCB3009EAC2A /* Model */ = {
@@ -386,7 +407,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D4DBA44128EDC69600CEF5D9 /* OFL.txt in Resources */,
+				D4DBA44728EDC69600CEF5D9 /* Poppins-Regular.ttf in Resources */,
 				D4C846AD28B802F6000B2C2F /* Preview Assets.xcassets in Resources */,
+				D4DBA44F28EDC69600CEF5D9 /* Poppins-Light.ttf in Resources */,
+				D4DBA44D28EDC69600CEF5D9 /* Poppins-ExtraBold.ttf in Resources */,
 				D4C846D228B8065C000B2C2F /* AccountInfo.json in Resources */,
 				D4C846AA28B802F6000B2C2F /* Assets.xcassets in Resources */,
 				D4C846D428B80943000B2C2F /* AccountSavedAlbums.json in Resources */,
@@ -598,8 +623,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -628,8 +653,8 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

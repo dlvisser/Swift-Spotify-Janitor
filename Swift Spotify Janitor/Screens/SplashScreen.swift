@@ -23,7 +23,7 @@ struct SplashScreen: View {
                         .resizable()
                         .frame(width: 256, height: 256)
                     Text("Spotify Janitor")
-                        .font(.largeTitle.bold())
+                        .font(Font.custom("Poppins-ExtraBold", size: 40))
                         .foregroundColor(Color.init(hex: "1DB954"))
                     NavigationLink(destination: login,
                                    isActive: $isActive,

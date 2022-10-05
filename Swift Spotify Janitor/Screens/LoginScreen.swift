@@ -34,6 +34,18 @@ struct LoginScreen: View {
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal)
                     Spacer()
+                    ZStack{
+                        Image("taya-iv-sBr-g8wJw5k-unsplash")
+                            .resizable()
+                            .scaledToFill()
+                            .frame(width: 256, height: 256)
+                            .clipped()
+                            .clipShape(Rectangle())
+                        Rectangle()
+                            .frame(width: 256, height: 256)
+                            .foregroundStyle(AppColorConstants.imageGradient)
+                    }
+                    Spacer()
                     Text("This Spotify Janitor is in no way affiliated with Spotify AB.")
                         .font(.body.weight(Font.Weight.thin))
                         .padding(.all)
@@ -53,11 +65,11 @@ struct LoginScreen: View {
                     NavigationLink(destination: mainScreen,
                                    isActive: $isActive,
                                    label: { EmptyView() })
-                    }
+                }
                 .onChange(of: networkManager.accessToken){ newToken in
                     navigateToMain()}
-                }
             }
+        }
         .navigationBarBackButtonHidden(true)
         .preferredColorScheme(.dark)
     }

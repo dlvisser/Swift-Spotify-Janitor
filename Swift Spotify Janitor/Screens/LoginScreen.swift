@@ -29,7 +29,7 @@ struct LoginScreen: View {
                 .edgesIgnoringSafeArea(.all)
                 VStack {
                     Text("Let's start cleaning up")
-                        .font(.largeTitle)
+                        .font(Font.custom("Poppins-ExtraBold", size: 40))
                         .fontWeight(.black)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal)
@@ -47,13 +47,13 @@ struct LoginScreen: View {
                     }
                     Spacer()
                     Text("This Spotify Janitor is in no way affiliated with Spotify AB.")
-                        .font(.body.weight(Font.Weight.thin))
+                        .font(Font.custom("Poppins-light", size: 14))
                         .padding(.all)
                         .multilineTextAlignment(.center)
                     Button(action: openSpotifyAuthentication){
                         HStack{
                             Text("Log in with")
-                                .font(.body.bold())
+                                .font(Font.custom("Poppins-ExtraBold", size: 24))
                                 .foregroundColor(AppColorConstants.spotifyWhiteColor)
                             Image("Spotify_Logo_RGB_White")
                                 .resizable()

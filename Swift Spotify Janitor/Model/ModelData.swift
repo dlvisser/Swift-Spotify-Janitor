@@ -22,7 +22,7 @@ final class ModelData : ObservableObject{
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("Bearer BQCz4QqqOQamd_e7Ar19SX16REhydZuJMIuhJphJkAw6WduQGv-LWGAEgQeZ8BLLMvONJCSaVWL5zI00UJKoEE9SM6T55L-o3rqV_Cdruk6iJC24xYUSDEuGzQNXq21g3KA6KuUu92vH4FFz4fc5IFZqy3dDEyEuzPHx--8JjNziGSb1JPAUxuSu4d6sZLIQdR7baZTBgqU", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(NetworkManager.shared.accessToken.accessToken)", forHTTPHeaderField: "Authorization")
         request.httpMethod = "GET"
         
         URLSession.shared.dataTaskPublisher(for: request)
@@ -49,7 +49,7 @@ final class ModelData : ObservableObject{
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("Bearer BQCz4QqqOQamd_e7Ar19SX16REhydZuJMIuhJphJkAw6WduQGv-LWGAEgQeZ8BLLMvONJCSaVWL5zI00UJKoEE9SM6T55L-o3rqV_Cdruk6iJC24xYUSDEuGzQNXq21g3KA6KuUu92vH4FFz4fc5IFZqy3dDEyEuzPHx--8JjNziGSb1JPAUxuSu4d6sZLIQdR7baZTBgqU", forHTTPHeaderField: "Authorization")
+        request.setValue("Bearer \(NetworkManager.shared.accessToken.accessToken)", forHTTPHeaderField: "Authorization")
         request.httpMethod = "GET"
         
         URLSession.shared.dataTaskPublisher(for: request)

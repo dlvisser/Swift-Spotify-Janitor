@@ -22,6 +22,7 @@ struct MainScreen: View {
             }
             .navigationTitle("").navigationBarHidden(true)
         }
+        .navigationBarBackButtonHidden(true)
     }
 }
 

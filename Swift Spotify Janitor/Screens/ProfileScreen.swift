@@ -27,8 +27,29 @@ struct ProfileScreen: View {
                 Spacer()
             }
             .padding(.horizontal)
+            VStack(alignment: .center) {
+                Spacer()
+                Button(action: openSpotifyLogOutSession){
+                    HStack{
+                        Text("Log out of")
+                            .font(Font.custom("Poppins-ExtraBold", size: 24))
+                            .foregroundColor(AppColorConstants.spotifyWhiteColor)
+                        Image("Spotify_Logo_RGB_White")
+                            .resizable()
+                            .frame(width: 140, height: 42)
+                    }.padding(.all)
+                }
+                .background(AppColorConstants.spotifyGreenColor)
+            .cornerRadius(40)
+            }
+            .padding(.bottom)
         }
         .preferredColorScheme(.dark)
+    }
+    
+    func openSpotifyLogOutSession(){
+        NetworkManager.shared.accessToken = AccessTokenResponse.sample
+        UIApplication.shared.open(URL(string: "https://accounts.spotify.com/logout")!)
     }
 }
 

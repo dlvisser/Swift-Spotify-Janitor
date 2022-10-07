@@ -12,9 +12,9 @@ struct Album: Codable, Identifiable{
     var artists: [Artist]
     var id : String
     var name: String
-    var popularity: Int
+    var popularity: Int?
     var uri : String
-    var label: String
+    var label: String?
     var releaseDate : String
     var images: [ImageData]
     

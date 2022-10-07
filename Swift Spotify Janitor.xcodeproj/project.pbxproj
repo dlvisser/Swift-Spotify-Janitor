@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		D4123B7D28E9F4D9007EA79B /* AccessTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4123B7C28E9F4D9007EA79B /* AccessTokenResponse.swift */; };
 		D4123B8028E9F552007EA79B /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4123B7F28E9F552007EA79B /* NetworkManager.swift */; };
+		D41A6B0228F063EF00EFAD77 /* TracksResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41A6B0128F063EF00EFAD77 /* TracksResponse.swift */; };
+		D41A6B0528F0644200EFAD77 /* TrackItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41A6B0428F0644200EFAD77 /* TrackItem.swift */; };
+		D41A6B0728F068DC00EFAD77 /* TrackRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41A6B0628F068DC00EFAD77 /* TrackRow.swift */; };
+		D41A6B0A28F0697200EFAD77 /* TrackList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41A6B0928F0697200EFAD77 /* TrackList.swift */; };
+		D41A6B0C28F06CD900EFAD77 /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = D41A6B0B28F06CD900EFAD77 /* Track.swift */; };
 		D44E26EA28EDF3AC0073225D /* AlbumScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44E26E928EDF3AC0073225D /* AlbumScreen.swift */; };
 		D44E26EC28EDF4490073225D /* ProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44E26EB28EDF4490073225D /* ProfileScreen.swift */; };
 		D44E26EE28EDF4530073225D /* TrackScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44E26ED28EDF4530073225D /* TrackScreen.swift */; };
@@ -62,6 +67,11 @@
 /* Begin PBXFileReference section */
 		D4123B7C28E9F4D9007EA79B /* AccessTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenResponse.swift; sourceTree = "<group>"; };
 		D4123B7F28E9F552007EA79B /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		D41A6B0128F063EF00EFAD77 /* TracksResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TracksResponse.swift; sourceTree = "<group>"; };
+		D41A6B0428F0644200EFAD77 /* TrackItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackItem.swift; sourceTree = "<group>"; };
+		D41A6B0628F068DC00EFAD77 /* TrackRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackRow.swift; sourceTree = "<group>"; };
+		D41A6B0928F0697200EFAD77 /* TrackList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackList.swift; sourceTree = "<group>"; };
+		D41A6B0B28F06CD900EFAD77 /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
 		D44E26E928EDF3AC0073225D /* AlbumScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumScreen.swift; sourceTree = "<group>"; };
 		D44E26EB28EDF4490073225D /* ProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileScreen.swift; sourceTree = "<group>"; };
 		D44E26ED28EDF4530073225D /* TrackScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackScreen.swift; sourceTree = "<group>"; };
@@ -138,6 +148,25 @@
 				D4123B7F28E9F552007EA79B /* NetworkManager.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		D41A6B0328F063F600EFAD77 /* Tracks */ = {
+			isa = PBXGroup;
+			children = (
+				D41A6B0128F063EF00EFAD77 /* TracksResponse.swift */,
+				D41A6B0428F0644200EFAD77 /* TrackItem.swift */,
+				D41A6B0B28F06CD900EFAD77 /* Track.swift */,
+			);
+			path = Tracks;
+			sourceTree = "<group>";
+		};
+		D41A6B0828F0696200EFAD77 /* Track */ = {
+			isa = PBXGroup;
+			children = (
+				D41A6B0628F068DC00EFAD77 /* TrackRow.swift */,
+				D41A6B0928F0697200EFAD77 /* TrackList.swift */,
+			);
+			path = Track;
 			sourceTree = "<group>";
 		};
 		D466992D28E8CBDC00E366C7 /* Screens */ = {
@@ -249,6 +278,7 @@
 		D4E6256C28BBBCB3009EAC2A /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				D41A6B0328F063F600EFAD77 /* Tracks */,
 				D4123B7B28E9F4BF007EA79B /* Network */,
 				D4E6257128BBBEF3009EAC2A /* ModelData.swift */,
 				D4E6257F28BBF1AA009EAC2A /* Album */,
@@ -283,6 +313,7 @@
 				D4C846A728B802F4000B2C2F /* ContentView.swift */,
 				D4E6258228BBF1E9009EAC2A /* Album */,
 				D4E9E41228BEB4A200E92472 /* Profile */,
+				D41A6B0828F0696200EFAD77 /* Track */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -448,27 +479,32 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D41A6B0728F068DC00EFAD77 /* TrackRow.swift in Sources */,
 				D4DBA42528ED8DBD00CEF5D9 /* SplashScreen.swift in Sources */,
 				D44E26EC28EDF4490073225D /* ProfileScreen.swift in Sources */,
 				D4E9E41028BE9A1B00E92472 /* ProfileTag.swift in Sources */,
 				D4C846A828B802F4000B2C2F /* ContentView.swift in Sources */,
 				D4C846A628B802F4000B2C2F /* Swift_Spotify_JanitorApp.swift in Sources */,
 				D466993328E8CD4400E366C7 /* Constants.swift in Sources */,
+				D41A6B0528F0644200EFAD77 /* TrackItem.swift in Sources */,
 				D4E6257628BBC0A7009EAC2A /* AlbumList.swift in Sources */,
 				D4E6257C28BBE226009EAC2A /* Artist.swift in Sources */,
 				D4123B7D28E9F4D9007EA79B /* AccessTokenResponse.swift in Sources */,
 				D466992F28E8CC0B00E366C7 /* MainScreen.swift in Sources */,
 				D4E6256B28BBB9C1009EAC2A /* AlbumItem.swift in Sources */,
 				D4C846D728B811DC000B2C2F /* AlbumRow.swift in Sources */,
+				D41A6B0C28F06CD900EFAD77 /* Track.swift in Sources */,
 				D4123B8028E9F552007EA79B /* NetworkManager.swift in Sources */,
 				D4E6256E28BBBCC8009EAC2A /* Album.swift in Sources */,
 				D4E6257E28BBE5FD009EAC2A /* ImageData.swift in Sources */,
+				D41A6B0A28F0697200EFAD77 /* TrackList.swift in Sources */,
 				D4E9E40D28BE970D00E92472 /* Profile.swift in Sources */,
 				D466993128E8CCA700E366C7 /* LoginScreen.swift in Sources */,
 				D44E26EE28EDF4530073225D /* TrackScreen.swift in Sources */,
 				D4E6257A28BBC753009EAC2A /* AlbumResponse.swift in Sources */,
 				D44E26EA28EDF3AC0073225D /* AlbumScreen.swift in Sources */,
 				D4E6257228BBBEF3009EAC2A /* ModelData.swift in Sources */,
+				D41A6B0228F063EF00EFAD77 /* TracksResponse.swift in Sources */,
 				D4DBA42828ED8F2D00CEF5D9 /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

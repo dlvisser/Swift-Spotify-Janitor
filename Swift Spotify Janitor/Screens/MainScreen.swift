@@ -8,7 +8,9 @@
 import SwiftUI
 
 struct MainScreen: View {
-    
+    @EnvironmentObject var modelData : ModelData
+    @StateObject var networkManager = NetworkManager.shared
+
     var body: some View {
         TabView{
             AlbumScreen()
@@ -23,6 +25,11 @@ struct MainScreen: View {
                 .tabItem{
                     Label("Profile", image: "profile")
                 }
+        }
+        .onChange(of: networkManager.accessToken.accessToken){ newToken in
+            print("onchange")
+            modelData.loadAlbumData()
+            modelData.loadProfileData()
         }
         .accentColor(AppColorConstants.spotifyWhiteColor)
         .preferredColorScheme(.dark)

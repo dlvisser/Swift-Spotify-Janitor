@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct ProfileScreen: View {
+    
+    @State var isReturned = false
+    let loginScreen = LoginScreen()
+    
     var body: some View {
         ZStack{
             ZStack(alignment: .top){
@@ -40,7 +44,11 @@ struct ProfileScreen: View {
                     }.padding(.all)
                 }
                 .background(AppColorConstants.spotifyGreenColor)
-            .cornerRadius(40)
+                .cornerRadius(40)
+                NavigationLink(
+                    destination: loginScreen,
+                    isActive: $isReturned,
+                    label: {EmptyView()})
             }
             .padding(.bottom)
         }
@@ -49,7 +57,10 @@ struct ProfileScreen: View {
     
     func openSpotifyLogOutSession(){
         NetworkManager.shared.accessToken = AccessTokenResponse.sample
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: "User_Refresh_Token")
         UIApplication.shared.open(URL(string: "https://accounts.spotify.com/logout")!)
+        isReturned = true
     }
 }
 

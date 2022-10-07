@@ -26,6 +26,8 @@ final class ModelData : ObservableObject{
         request.setValue("Bearer \(NetworkManager.shared.accessToken.accessToken)", forHTTPHeaderField: "Authorization")
         request.httpMethod = "GET"
         
+        print("Requesting Profile Data")
+        
         URLSession.shared.dataTaskPublisher(for: request)
             .tryMap { output in
                          guard let response = output.response as? HTTPURLResponse, response.statusCode == 200 else {

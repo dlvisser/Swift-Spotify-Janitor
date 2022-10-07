@@ -9,7 +9,19 @@ import SwiftUI
 
 struct SplashScreen: View {
     @State private var isActive = false
+    private let defaults = UserDefaults.standard
+    private var hasToken = false
     let login = LoginScreen()
+    let main = MainScreen()
+    
+    init(isActive: Bool = false) {
+        self.isActive = isActive
+        if (defaults.string(forKey: "User_Refresh_Token") != nil){
+            self.hasToken = true
+        }
+        
+        print("hastoken: \(hasToken)")
+}
 
     var body: some View {
             NavigationView {
@@ -25,21 +37,39 @@ struct SplashScreen: View {
                     Text("Spotify Janitor")
                         .font(Font.custom("Poppins-ExtraBold", size: 40))
                         .foregroundColor(Color.init(hex: "1DB954"))
-                    NavigationLink(destination: login,
-                                   isActive: $isActive,
-                                   label: { EmptyView() })
+                    if(hasToken){
+                        NavigationLink(destination: main,
+                                       isActive: $isActive,
+                                       label: { EmptyView() })
+                    }else{
+                        NavigationLink(destination: login,
+                                       isActive: $isActive,
+                                       label: { EmptyView() })
+                    }
                 }
                 .onAppear(perform: {
-                    self.gotoLoginScreen(time: 2.5)
+                    if(hasToken){
+                        continueToMainScreen(time: 2.5)
+                    }else{
+                        continueToLoginScreen(time: 2.5)
+                    }
                 })
             }
         }
         .preferredColorScheme(.dark)
     }
-
-    func gotoLoginScreen(time: Double) {
+    
+    func continueToLoginScreen(time: Double){
         DispatchQueue.main.asyncAfter(deadline: .now() + Double(time)) {
             self.isActive = true
+        }
+    }
+    
+    func continueToMainScreen(time: Double){
+        DispatchQueue.main.asyncAfter(deadline: .now() + Double(time)) {
+            self.isActive = true
+            let refreshToken : String = defaults.string(forKey: "User_Refresh_Token")!
+            NetworkManager.shared.requestNewAccessTokenWithRefreshToken(refreshToken: refreshToken)
         }
     }
 }

@@ -19,7 +19,7 @@ class NetworkManager : ObservableObject{
         print(error)
     }
     
-    func requestNewAccessToken(authToken : String){
+    func requestNewAccessTokenWithAuthToken(authToken : String){
         guard let tokenURL = URL(string: "https://accounts.spotify.com/api/token") else{
             print("Cannot create URL")
             return
@@ -46,7 +46,48 @@ class NetworkManager : ObservableObject{
                     self.accessToken = try JSONDecoder().decode(AccessTokenResponse.self, from: data)
                     print(self.accessToken.accessToken)
                 }catch{
-                    print("No token found")
+                    print("Access: \(self.accessToken.accessToken)")
+                }
+            }
+        }
+        task.resume()
+        }
+    
+    func requestNewAccessTokenWithRefreshToken(refreshToken : String){
+        guard let tokenURL = URL(string: "https://accounts.spotify.com/api/token") else{
+            print("Cannot create URL")
+            return
+        }
+        
+        print("RefreshToken Process")
+        
+        print(refreshToken)
+        print(redirectUri)
+        print(clientId)
+        print(clientSecret)
+        
+        var requestBodyComponents = URLComponents()
+        requestBodyComponents.queryItems = [URLQueryItem(name: "grant_type", value: "refresh_token"),
+                                            URLQueryItem(name: "refresh_token", value: "\(refreshToken)"),
+                                            URLQueryItem(name: "redirect_uri", value: redirectUri),
+                                            URLQueryItem(name: "client_id", value: clientId),
+                                            URLQueryItem(name: "client_secret", value: clientSecret)]
+        
+        var request = URLRequest(url: tokenURL)
+        request.httpBody = requestBodyComponents.query?.data(using: .utf8)
+        request.httpMethod = "POST"
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            DispatchQueue.main.async {
+                guard let data = data
+                else{
+                    return
+                }
+                do{
+                    self.accessToken = try JSONDecoder().decode(AccessTokenResponse.self, from: data)
+                    print("Refresh: \(self.accessToken.accessToken)")
+                }catch{
+                    print(error)
                 }
             }
         }

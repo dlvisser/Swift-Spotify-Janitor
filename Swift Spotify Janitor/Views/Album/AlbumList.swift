@@ -17,7 +17,6 @@ struct AlbumList: View {
             }
             .navigationTitle("Albums")
         }
-        .onAppear(perform: { modelData.loadAlbumData()})
     }
 }
 

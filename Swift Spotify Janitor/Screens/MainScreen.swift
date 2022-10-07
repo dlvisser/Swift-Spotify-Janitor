@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct MainScreen: View {
+    @EnvironmentObject var modelData : ModelData
+    @StateObject var networkManager = NetworkManager.shared
     
     var body: some View {
         TabView{
@@ -23,6 +25,20 @@ struct MainScreen: View {
                 .tabItem{
                     Label("Profile", image: "profile")
                 }
+        }
+        .onAppear(perform: {
+            let appearance = UITabBarAppearance()
+            appearance.backgroundEffect = UIBlurEffect(style: .systemUltraThinMaterialDark)
+            appearance.backgroundColor = UIColor(AppColorConstants.spotifyDarkColor.opacity(0.4))
+            // Use this appearance when scrolling behind the TabView:
+            UITabBar.appearance().standardAppearance = appearance
+            // Use this appearance when scrolled all the way up:
+            UITabBar.appearance().scrollEdgeAppearance = appearance
+        })
+        .onChange(of: networkManager.accessToken.accessToken){ newToken in
+            print("onchange")
+            modelData.loadAlbumData()
+            modelData.loadProfileData()
         }
         .accentColor(AppColorConstants.spotifyWhiteColor)
         .preferredColorScheme(.dark)

@@ -23,6 +23,7 @@ struct AlbumScreen: View {
                 Text("Hi there! These albums miss you!")
                     .font(Font.custom("Poppins-ExtraBold", size: 32))
                     .multilineTextAlignment(.leading)
+                    .padding(.horizontal)
                 Spacer()
                 AlbumList()
             }

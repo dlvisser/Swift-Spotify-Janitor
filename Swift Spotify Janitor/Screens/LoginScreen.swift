@@ -13,8 +13,6 @@ struct LoginScreen: View {
     @State private var isActive = false
     let mainScreen = MainScreen()
     
-    
-    
     var body: some View {
         NavigationView {
             ZStack{
@@ -66,7 +64,9 @@ struct LoginScreen: View {
                                    isActive: $isActive,
                                    label: { EmptyView() })
                 }
-                .onChange(of: networkManager.accessToken){ newToken in
+                .onChange(of: networkManager.accessToken.accessToken){ newToken in
+                    modelData.loadAlbumData()
+                    modelData.loadProfileData()
                     navigateToMain()}
             }
         }

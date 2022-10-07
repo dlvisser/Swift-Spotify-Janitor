@@ -9,8 +9,8 @@ import Foundation
 import Combine
 
 final class ModelData : ObservableObject{
-//    @Published var albumResponse : AlbumResponse = load("AccountSavedAlbums.json")
-    @Published var albumResponse : AlbumResponse = AlbumResponse.sample
+    @Published var albumResponse : AlbumResponse = load("AccountSavedAlbums.json")
+//    @Published var albumResponse : AlbumResponse = AlbumResponse.sample
     @Published var accountInfo : ProfileData = ProfileData.sample
     @Published var userAuthToken : String = "Empty"
     
@@ -25,6 +25,8 @@ final class ModelData : ObservableObject{
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.setValue("Bearer \(NetworkManager.shared.accessToken.accessToken)", forHTTPHeaderField: "Authorization")
         request.httpMethod = "GET"
+        
+        print("Requesting Profile Data")
         
         URLSession.shared.dataTaskPublisher(for: request)
             .tryMap { output in

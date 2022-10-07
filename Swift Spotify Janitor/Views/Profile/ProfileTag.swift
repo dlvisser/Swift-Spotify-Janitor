@@ -30,7 +30,6 @@ struct ProfileTag: View {
             Spacer()
         }
         .frame(height: 128)
-        .onAppear(perform: { modelData.loadProfileData()})
     }
 }
 

@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct Swift_Spotify_JanitorApp: App {
     @StateObject private var modelData = ModelData()
+    @StateObject var networkManager = NetworkManager.shared
     
     var body: some Scene {
         WindowGroup {
@@ -17,9 +18,12 @@ struct Swift_Spotify_JanitorApp: App {
                 .environmentObject(modelData)
                 .onOpenURL(perform: { url in
                     modelData.userAuthToken = openURL(url: url)
-                    NetworkManager.shared.requestNewAccessToken(authToken: modelData.userAuthToken)
-                    print("AccessToken: \(NetworkManager().accessToken.accessToken)")
+                    networkManager.requestNewAccessTokenWithAuthToken(authToken: modelData.userAuthToken)
                 })
+                .onChange(of: networkManager.accessToken.refreshToken){ newToken in
+                    let defaults = UserDefaults.standard
+                    defaults.set(newToken, forKey: "User_Refresh_Token")
+                }
         }
     }
     
@@ -30,15 +34,13 @@ struct Swift_Spotify_JanitorApp: App {
 
          // Process the URL.
          guard let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true),
-             let tokenPath = components.path,
+             let path = components.path,
              let params = components.queryItems else {
                  print("Invalid URL or album path missing")
                  return "Empty"
          }
 
          if let authToken = params.first(where: { $0.name == "code" })?.value {
-             print("tokenPath = \(tokenPath)")
-             print("authToken = \(authToken)")
              return authToken
          } else {
              print("AuthToken missing")

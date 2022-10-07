@@ -23,8 +23,9 @@ struct TrackScreen: View {
                 Text("These songs don't feel heard...")
                     .font(Font.custom("Poppins-ExtraBold", size: 32))
                     .multilineTextAlignment(.leading)
-                AlbumList()
+                    .padding(.horizontal)
                 Spacer()
+                AlbumList()
             }
         }
         .preferredColorScheme(.dark)

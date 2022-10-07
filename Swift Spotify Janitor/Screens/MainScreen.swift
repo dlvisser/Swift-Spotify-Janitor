@@ -39,6 +39,8 @@ struct MainScreen: View {
             print("onchange")
             modelData.loadAlbumData()
             modelData.loadProfileData()
+            modelData.loadTrackData()
+            print("HELP")
         }
         .accentColor(AppColorConstants.spotifyWhiteColor)
         .preferredColorScheme(.dark)

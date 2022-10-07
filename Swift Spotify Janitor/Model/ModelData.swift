@@ -9,9 +9,10 @@ import Foundation
 import Combine
 
 final class ModelData : ObservableObject{
-    @Published var albumResponse : AlbumResponse = load("AccountSavedAlbums.json")
-//    @Published var albumResponse : AlbumResponse = AlbumResponse.sample
+//    @Published var albumResponse : AlbumResponse = load("AccountSavedAlbums.json")
+    @Published var albumResponse : AlbumResponse = AlbumResponse.sample
     @Published var accountInfo : ProfileData = ProfileData.sample
+    @Published var trackResponse : TrackResponse = TrackResponse.sample
     @Published var userAuthToken : String = "Empty"
     
     func loadProfileData() {
@@ -68,6 +69,33 @@ final class ModelData : ObservableObject{
             .eraseToAnyPublisher()
             .receive(on: DispatchQueue.main)
             .assign(to: &$albumResponse)
+    }
+    
+    func loadTrackData() {
+        guard let url = URL(string: "https://api.spotify.com/v1/me/tracks") else{
+            print ("Failed to create URL")
+            return
+        }
+
+        var request = URLRequest(url: url)
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("Bearer \(NetworkManager.shared.accessToken.accessToken)", forHTTPHeaderField: "Authorization")
+        request.httpMethod = "GET"
+        
+        URLSession.shared.dataTaskPublisher(for: request)
+            .tryMap { output in
+                         guard let response = output.response as? HTTPURLResponse, response.statusCode == 200 else {
+                             throw URLError(.badServerResponse)
+                         }
+                         return output.data
+                     }
+            .decode(type: TrackResponse.self, decoder: JSONDecoder())
+            .retry(3)
+            .replaceError(with: TrackResponse.sample)
+            .eraseToAnyPublisher()
+            .receive(on: DispatchQueue.main)
+            .assign(to: &$trackResponse)
     }
 }
 

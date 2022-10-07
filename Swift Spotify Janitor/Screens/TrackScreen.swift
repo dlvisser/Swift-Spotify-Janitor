@@ -25,7 +25,7 @@ struct TrackScreen: View {
                     .multilineTextAlignment(.leading)
                     .padding(.horizontal)
                 Spacer()
-                AlbumList()
+                TrackList()
             }
         }
         .preferredColorScheme(.dark)

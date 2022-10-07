@@ -67,6 +67,7 @@ struct LoginScreen: View {
                 .onChange(of: networkManager.accessToken.accessToken){ newToken in
                     modelData.loadAlbumData()
                     modelData.loadProfileData()
+                    modelData.loadTrackData()
                     navigateToMain()}
             }
         }

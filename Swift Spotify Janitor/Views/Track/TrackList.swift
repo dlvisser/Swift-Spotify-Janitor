@@ -7,23 +7,23 @@
 
 import SwiftUI
 
-struct AlbumList: View {
+struct TrackList: View {
     @EnvironmentObject var modelData : ModelData
     
     var body: some View {
         ScrollView{
-            ForEach(modelData.albumResponse.aItems.reversed(), id: \.album.id){ albumItem in
-                AlbumRow(album: albumItem.album)
+            ForEach(modelData.trackResponse.tItems.reversed(), id: \.track.id){ trackItem in
+                TrackRow(track: trackItem.track)
             }
-            .navigationTitle("Albums")
+            .navigationTitle("Tracks")
         }
         .preferredColorScheme(.dark)
     }
 }
 
-struct AlbumList_Previews: PreviewProvider {
+struct TrackList_Previews: PreviewProvider {
     static var previews: some View {
-        AlbumList()
+        TrackList()
             .environmentObject(ModelData())
     }
 }

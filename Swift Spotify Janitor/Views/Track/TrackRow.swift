@@ -7,26 +7,26 @@
 
 import SwiftUI
 
-struct AlbumRow: View {
-    var album: Album
+struct TrackRow: View {
+    var track: Track
     @State var isAlerted = false
     
     var body: some View {
         HStack() {
-            AsyncImage(url: URL(string: album.images[1].url)){ image in image.resizable()} placeholder: {
+            AsyncImage(url: URL(string: track.album.images[1].url)){ image in image.resizable()} placeholder: {
                 ProgressView()
             }
             .frame(width: 128, height: 128)
             VStack(alignment: .leading){
-                Text(album.name)
+                Text(track.name)
                     .font(Font.custom("Poppins-ExtraBold", size: 16))
                     .lineLimit(1)
-                Text(album.artists[0].name)
+                Text(track.album.artists[0].name)
                     .font(Font.custom("Poppins-Regular", size: 16))
                     .foregroundColor(.gray)
                 Spacer()
                 HStack{
-                    Button(action: {openSpotifyLink(albumUri: album.uri)}){
+                    Button(action: {openSpotifyLink(albumUri: track.uri)}){
                         HStack{
                             Image("Spotify_Icon_RGB_White")
                                 .resizable()
@@ -34,7 +34,6 @@ struct AlbumRow: View {
                             Text("Open Spotify")
                                 .font(Font.custom("Poppins-ExtraBold", size: 12))
                                 .foregroundColor(AppColorConstants.spotifyWhiteColor)
-                          
                         }
                         .padding(/*@START_MENU_TOKEN@*/.all, 6.0/*@END_MENU_TOKEN@*/)
                     }
@@ -47,8 +46,9 @@ struct AlbumRow: View {
                             .frame(width: 24, height: 24)
                             .foregroundColor(AppColorConstants.spotifyWhiteColor)
                             .padding(.all, 6.0)
-                    }.alert(isPresented: $isAlerted){
-                        Alert(title: Text("Confirm Deletion"),message: Text("Are you sure you want to remove: \n\(album.name)") , primaryButton: .destructive(Text("Delete")){callForSpotifyItemDeletion(itemIDToRemove: album.id)}, secondaryButton: .cancel())
+                    }
+                    .alert(isPresented: $isAlerted){
+                        Alert(title: Text("Confirm Deletion"),message: Text("Are you sure you want to remove: \n\(track.name)") , primaryButton: .destructive(Text("Delete")){callForSpotifyItemDeletion(itemIDToRemove: track.id)} , secondaryButton: .cancel())
                     }
                     .background(AppColorConstants.appRedColor)
                     .cornerRadius(20)
@@ -64,7 +64,7 @@ struct AlbumRow: View {
     
     func callForSpotifyItemDeletion(itemIDToRemove : String){
         // TODO: give user feedback of success.
-        NetworkManager.shared.removeItemFromSpotifyAccount(endpoint: "me/albums", itemIDToRemove: itemIDToRemove)
+        NetworkManager.shared.removeItemFromSpotifyAccount(endpoint: "me/tracks", itemIDToRemove: itemIDToRemove)
     }
     
     func alertUserUponDeletion(){
@@ -76,11 +76,11 @@ struct AlbumRow: View {
     }
 }
 
-struct AlbumRow_Previews: PreviewProvider {
-    static var albumItems = ModelData().albumResponse.aItems
+struct TrackRow_Previews: PreviewProvider {
+    static var trackItems = ModelData().trackResponse.tItems
     
     static var previews: some View {
-        AlbumRow(album: albumItems[0].album)
+        TrackRow(track: trackItems[0].track)
             .environmentObject(ModelData())
     }
 }

@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct TrackScreen: View {
+    
+    @State var expanded = true
+    
     var body: some View {
         ZStack{
             ZStack(alignment: .top){
@@ -20,14 +23,24 @@ struct TrackScreen: View {
             }
             .edgesIgnoringSafeArea(.all)
             VStack(alignment: .leading){
-                Text("These songs don't feel heard...")
-                    .font(Font.custom("Poppins-ExtraBold", size: 32))
-                    .multilineTextAlignment(.leading)
-                    .padding(.horizontal)
+                if(expanded) {
+                    Text("These songs don't feel heard...")
+                        .font(Font.custom("Poppins-ExtraBold", size: 32))
+                        .multilineTextAlignment(.leading)
+                        .padding(.horizontal)
+                }
                 Spacer()
-                AlbumList()
+                TrackList()
             }
         }
+        .gesture(DragGesture().onChanged{ value in
+            if(value.translation.height > 0){
+                expanded = true
+            }else{
+                expanded = false
+            }
+        })
+        .animation(.easeInOut, value: expanded)
         .preferredColorScheme(.dark)
     }
 }

@@ -12,7 +12,7 @@ struct AlbumList: View {
     
     var body: some View {
         ScrollView{
-            ForEach(modelData.albumResponse.aItems, id: \.album.id){ albumItem in
+            ForEach(modelData.albumResponse.aItems.reversed(), id: \.album.id){ albumItem in
                 AlbumRow(album: albumItem.album)
             }
             .navigationTitle("Albums")

@@ -12,7 +12,7 @@ struct TrackList: View {
     
     var body: some View {
         ScrollView{
-            ForEach(modelData.trackResponse.tItems, id: \.track.id){ trackItem in
+            ForEach(modelData.trackResponse.tItems.reversed(), id: \.track.id){ trackItem in
                 TrackRow(track: trackItem.track)
             }
             .navigationTitle("Tracks")

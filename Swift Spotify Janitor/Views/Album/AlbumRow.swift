@@ -9,6 +9,7 @@ import SwiftUI
 
 struct AlbumRow: View {
     var album: Album
+    @State var isAlerted = false
     
     var body: some View {
         HStack() {
@@ -24,26 +25,45 @@ struct AlbumRow: View {
                     .font(Font.custom("Poppins-Regular", size: 16))
                     .foregroundColor(.gray)
                 Spacer()
-                Button(action: {openSpotifyLink(albumUri: album.uri)}){
-                    HStack{
-                        Image("Spotify_Icon_RGB_White")
+                HStack{
+                    Button(action: {openSpotifyLink(albumUri: album.uri)}){
+                        HStack{
+                            Image("Spotify_Icon_RGB_White")
+                                .resizable()
+                                .frame(width: 24, height: 24)
+                            Text("Open Spotify")
+                                .font(Font.custom("Poppins-ExtraBold", size: 12))
+                                .foregroundColor(AppColorConstants.spotifyWhiteColor)
+                          
+                        }
+                        .padding(/*@START_MENU_TOKEN@*/.all, 6.0/*@END_MENU_TOKEN@*/)
+                    }
+                    .background(AppColorConstants.spotifyGreenColor)
+                    .cornerRadius(40)
+                    Spacer()
+                    Button(action: {alertUserUponDeletion()}){
+                        Image("remove")
                             .resizable()
                             .frame(width: 24, height: 24)
-                        Text("Open Spotify")
-                            .font(Font.custom("Poppins-ExtraBold", size: 12))
                             .foregroundColor(AppColorConstants.spotifyWhiteColor)
-                      
+                            .padding(.all, 6.0)
+                    }.alert(isPresented: $isAlerted){
+                        Alert(title: Text("Confirm Deletion"),message: Text("Are you sure you want to remove: \n\(album.name)") , primaryButton: .destructive(Text("Delete")){print("Deleted: \(album.name)")} , secondaryButton: .cancel())
                     }
-                    .padding(/*@START_MENU_TOKEN@*/.all, 6.0/*@END_MENU_TOKEN@*/)
+                    .background(AppColorConstants.appRedColor)
+                    .cornerRadius(20)
                 }
-                .background(AppColorConstants.spotifyGreenColor)
-                .cornerRadius(40)
+                .padding(.trailing)
             }
             .padding(.leading)
             Spacer()
         }
         .frame(height: 128)
         .padding(.bottom, 4.0)
+    }
+    
+    func alertUserUponDeletion(){
+        isAlerted = true
     }
     
     func openSpotifyLink(albumUri : String){

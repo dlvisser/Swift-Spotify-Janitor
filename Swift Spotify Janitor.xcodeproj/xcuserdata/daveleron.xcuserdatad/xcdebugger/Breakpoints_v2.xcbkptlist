@@ -14,8 +14,8 @@
             filePath = "Swift Spotify Janitor/Model/ModelData.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
             landmarkName = "loadProfileData()"
             landmarkType = "7">
          </BreakpointContent>
@@ -30,25 +30,9 @@
             filePath = "Swift Spotify Janitor/Model/ModelData.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "loadAlbumData()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "644EE780-5182-4349-B1C3-3D4E8A1CDE66"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Swift Spotify Janitor/Model/ModelData.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "98"
-            endingLineNumber = "98"
-            landmarkName = "loadTrackData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -62,8 +46,8 @@
             filePath = "Swift Spotify Janitor/Screens/MainScreen.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "42"
-            endingLineNumber = "42"
+            startingLineNumber = "47"
+            endingLineNumber = "47"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -78,8 +62,8 @@
             filePath = "Swift Spotify Janitor/Screens/MainScreen.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "43"
-            endingLineNumber = "43"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
@@ -94,8 +78,8 @@
             filePath = "Swift Spotify Janitor/Screens/TrackScreen.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
+            startingLineNumber = "33"
+            endingLineNumber = "33"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>

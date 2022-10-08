@@ -17,6 +17,7 @@ struct TrackList: View {
             }
             .navigationTitle("Tracks")
         }
+        .preferredColorScheme(.dark)
     }
 }
 

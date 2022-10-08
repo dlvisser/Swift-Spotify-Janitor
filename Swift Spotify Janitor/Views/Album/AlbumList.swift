@@ -17,6 +17,7 @@ struct AlbumList: View {
             }
             .navigationTitle("Albums")
         }
+        .preferredColorScheme(.dark)
     }
 }
 

@@ -19,17 +19,15 @@ struct SplashScreen: View {
         if (defaults.string(forKey: "User_Refresh_Token") != nil){
             self.hasToken = true
         }
-        
-        print("hastoken: \(hasToken)")
-}
-
+    }
+    
     var body: some View {
-            NavigationView {
+        NavigationView {
+            ZStack{
                 ZStack{
-                    ZStack{
-                        AppColorConstants.backgroundColor
-                    }
-                    .edgesIgnoringSafeArea(.all)
+                    AppColorConstants.backgroundColor
+                }
+                .edgesIgnoringSafeArea(.all)
                 VStack(alignment: .center) {
                     Image("Spotify_Icon_RGB_Green")
                         .resizable()

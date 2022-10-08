@@ -76,7 +76,7 @@ struct LoginScreen: View {
     }
     
     func openSpotifyAuthentication(){
-        UIApplication.shared.open(URL(string: "https://accounts.spotify.com/en/authorize?client_id=db3571c8b48049b595fa9acb17be9d3a&response_type=code&redirect_uri=swiftspotifyjanitor://callback&scope=user-read-email%20user-read-private%20user-library-read&show_dialog=true")!)
+        UIApplication.shared.open(URL(string: "https://accounts.spotify.com/en/authorize?client_id=db3571c8b48049b595fa9acb17be9d3a&response_type=code&redirect_uri=swiftspotifyjanitor://callback&scope=user-library-modify%20user-read-private%20user-library-read&show_dialog=true")!)
     }
     
     func navigateToMain(){

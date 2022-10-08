@@ -9,7 +9,7 @@ import Foundation
 
 struct ProfileData : Codable{
     var displayName : String
-    var email: String
+    var email: String?
     var images: [ImageData]
     var product : String
     var uri : String

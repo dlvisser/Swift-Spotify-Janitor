@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct AlbumScreen: View {
+    
+    @State var expanded = true
+    
     var body: some View {
         ZStack{
             ZStack(alignment: .top){
@@ -20,14 +23,25 @@ struct AlbumScreen: View {
             }
             .edgesIgnoringSafeArea(.all)
             VStack(alignment: .leading){
-                Text("Hi there! These albums miss you!")
-                    .font(Font.custom("Poppins-ExtraBold", size: 32))
-                    .multilineTextAlignment(.leading)
-                    .padding(.horizontal)
+                if(expanded) {
+                    Text("Hi there! These albums miss you!")
+                        .font(Font.custom("Poppins-ExtraBold", size: 32))
+                        .multilineTextAlignment(.leading)
+                        .padding(.horizontal)
+                }
                 Spacer()
                 AlbumList()
+                
             }
         }
+        .gesture(DragGesture().onChanged{ value in
+            if(value.translation.height > 0){
+                expanded = true
+            }else{
+                expanded = false
+            }
+        })
+        .animation(.easeIn, value: expanded)
         .preferredColorScheme(.dark)
     }
 }

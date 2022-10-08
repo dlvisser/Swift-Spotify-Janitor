@@ -21,6 +21,7 @@ struct AppColorConstants{
     static let spotifyDarkColor = Color.init(hex: "191414")
     static let spotifyGreenColor = Color.init(hex: "1DB954")
     static let spotifyWhiteColor = Color.init(hex: "FFFFFF")
+    static let appRedColor = Color.init(hex: "cc2854")
 }
 
 

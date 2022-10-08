@@ -59,13 +59,6 @@ class NetworkManager : ObservableObject{
             return
         }
         
-        print("RefreshToken Process")
-        
-        print(refreshToken)
-        print(redirectUri)
-        print(clientId)
-        print(clientSecret)
-        
         var requestBodyComponents = URLComponents()
         requestBodyComponents.queryItems = [URLQueryItem(name: "grant_type", value: "refresh_token"),
                                             URLQueryItem(name: "refresh_token", value: "\(refreshToken)"),
@@ -93,4 +86,31 @@ class NetworkManager : ObservableObject{
         }
         task.resume()
         }
+    
+    func removeItemFromSpotifyAccount(endpoint: String, itemIDToRemove: String){
+        guard let tokenURL = URL(string: "https://api.spotify.com/v1/\(endpoint)?ids=\(itemIDToRemove)") else{
+            print("Cannot create URL")
+            return
+        }
+                
+        var request = URLRequest(url: tokenURL)
+        request.httpMethod = "DELETE"
+        request.setValue("Bearer \(accessToken.accessToken)", forHTTPHeaderField: "Authorization")
+        
+        let task = URLSession.shared.dataTask(with: request) { data, response, error in
+            DispatchQueue.main.async {
+                guard let data = data
+                else{
+                    return
+                }
+                do{
+                    // TODO: give user feedback of success.
+                    print("Deletion successfull of: \(itemIDToRemove)")
+                }catch{
+                    print(error)
+                }
+            }
+        }
+        task.resume()
+    }
 }

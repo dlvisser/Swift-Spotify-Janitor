@@ -48,7 +48,7 @@ struct AlbumRow: View {
                             .foregroundColor(AppColorConstants.spotifyWhiteColor)
                             .padding(.all, 6.0)
                     }.alert(isPresented: $isAlerted){
-                        Alert(title: Text("Confirm Deletion"),message: Text("Are you sure you want to remove: \n\(album.name)") , primaryButton: .destructive(Text("Delete")){print("Deleted: \(album.name)")} , secondaryButton: .cancel())
+                        Alert(title: Text("Confirm Deletion"),message: Text("Are you sure you want to remove: \n\(album.name)") , primaryButton: .destructive(Text("Delete")){callForSpotifyItemDeletion(itemIDToRemove: album.id)}, secondaryButton: .cancel())
                     }
                     .background(AppColorConstants.appRedColor)
                     .cornerRadius(20)
@@ -60,6 +60,11 @@ struct AlbumRow: View {
         }
         .frame(height: 128)
         .padding(.bottom, 4.0)
+    }
+    
+    func callForSpotifyItemDeletion(itemIDToRemove : String){
+        // TODO: give user feedback of success.
+        NetworkManager.shared.removeItemFromSpotifyAccount(endpoint: "me/albums", itemIDToRemove: itemIDToRemove)
     }
     
     func alertUserUponDeletion(){

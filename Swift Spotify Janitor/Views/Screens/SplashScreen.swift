@@ -31,9 +31,9 @@ struct SplashScreen: View {
                 VStack(alignment: .center) {
                     Image("Spotify_Icon_RGB_Green")
                         .resizable()
-                        .frame(width: 256, height: 256)
+                        .frame(width: AppDimensionConstants.dimension256, height: AppDimensionConstants.dimension256)
                     Text("Spotify Janitor")
-                        .font(Font.custom("Poppins-ExtraBold", size: 40))
+                        .font(Font.custom(AppFontNameConstants.poppinsExtraBold, size: AppFontSizeConstants.fontSize40))
                         .foregroundColor(Color.init(hex: "1DB954"))
                     if(hasToken){
                         NavigationLink(destination: main,
@@ -47,9 +47,9 @@ struct SplashScreen: View {
                 }
                 .onAppear(perform: {
                     if(hasToken){
-                        continueToMainScreen(time: 2.5)
+                        continueToMainScreen(time: AppTransitionDelayConstants.splashScreenDelay)
                     }else{
-                        continueToLoginScreen(time: 2.5)
+                        continueToLoginScreen(time: AppTransitionDelayConstants.splashScreenDelay)
                     }
                 })
             }

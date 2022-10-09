@@ -13,7 +13,7 @@ struct Swift_Spotify_JanitorApp: App {
     
     private let logger = Logger(
         subsystem: Bundle.main.bundleIdentifier!,
-        category: String(describing: NetworkManager.self)
+        category: String(describing: Swift_Spotify_JanitorApp.self)
     )
     
     @StateObject private var modelData = ModelData()

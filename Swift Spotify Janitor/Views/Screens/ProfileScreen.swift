@@ -25,7 +25,7 @@ struct ProfileScreen: View {
             .edgesIgnoringSafeArea(.all)
             VStack(alignment: .leading){
                 Text("This should be you... Right?")
-                    .font(Font.custom("Poppins-ExtraBold", size: 32))
+                    .font(Font.custom(AppFontNameConstants.poppinsExtraBold, size: AppFontSizeConstants.fontSize32))
                     .multilineTextAlignment(.leading)
                 ProfileTag()
                 Spacer()
@@ -36,15 +36,15 @@ struct ProfileScreen: View {
                 Button(action: openSpotifyLogOutSession){
                     HStack{
                         Text("Log out of")
-                            .font(Font.custom("Poppins-ExtraBold", size: 24))
+                            .font(Font.custom(AppFontNameConstants.poppinsExtraBold, size: AppFontSizeConstants.fontSize24))
                             .foregroundColor(AppColorConstants.spotifyWhiteColor)
                         Image("Spotify_Logo_RGB_White")
                             .resizable()
-                            .frame(width: 140, height: 42)
+                            .frame(width: SpotifyLogoDimensionConstants.smallWidth, height: SpotifyLogoDimensionConstants.smallHeight)
                     }.padding(.all)
                 }
                 .background(AppColorConstants.spotifyGreenColor)
-                .cornerRadius(40)
+                .cornerRadius(AppCornerRadiusConstants.cornerRadius40)
                 NavigationLink(
                     destination: loginScreen,
                     isActive: $isReturned,

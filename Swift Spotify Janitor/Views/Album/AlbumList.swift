@@ -15,7 +15,6 @@ struct AlbumList: View {
             ForEach(modelData.albumResponse.aItems.reversed(), id: \.album.id){ albumItem in
                 AlbumRow(album: albumItem.album)
             }
-            .navigationTitle("Albums")
         }
         .preferredColorScheme(.dark)
     }

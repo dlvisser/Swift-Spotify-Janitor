@@ -13,7 +13,7 @@ final class ModelData : ObservableObject{
     
     private let logger = Logger(
         subsystem: Bundle.main.bundleIdentifier!,
-        category: String(describing: NetworkManager.self)
+        category: String(describing: ModelData.self)
     )
     
 //    @Published var albumResponse : AlbumResponse = load("AccountSavedAlbums.json")

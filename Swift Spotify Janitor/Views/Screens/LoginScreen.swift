@@ -27,7 +27,7 @@ struct LoginScreen: View {
                 .edgesIgnoringSafeArea(.all)
                 VStack {
                     Text("Let's start cleaning up")
-                        .font(Font.custom("Poppins-ExtraBold", size: 40))
+                        .font(Font.custom(AppFontNameConstants.poppinsExtraBold, size: AppFontSizeConstants.fontSize40))
                         .fontWeight(.black)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal)
@@ -36,30 +36,30 @@ struct LoginScreen: View {
                         Image("taya-iv-sBr-g8wJw5k-unsplash")
                             .resizable()
                             .scaledToFill()
-                            .frame(width: 256, height: 256)
+                            .frame(width: AppDimensionConstants.dimension256, height: AppDimensionConstants.dimension256)
                             .clipped()
                             .clipShape(Rectangle())
                         Rectangle()
-                            .frame(width: 256, height: 256)
+                            .frame(width: AppDimensionConstants.dimension256, height: AppDimensionConstants.dimension256)
                             .foregroundStyle(AppColorConstants.imageGradient)
                     }
                     Spacer()
                     Text("This Spotify Janitor is in no way affiliated with Spotify AB.")
-                        .font(Font.custom("Poppins-light", size: 14))
+                        .font(Font.custom("Poppins-light", size: AppFontSizeConstants.fontSize14))
                         .padding(.all)
                         .multilineTextAlignment(.center)
                     Button(action: openSpotifyAuthentication){
                         HStack{
                             Text("Log in with")
-                                .font(Font.custom("Poppins-ExtraBold", size: 24))
+                                .font(Font.custom(AppFontNameConstants.poppinsExtraBold, size: AppFontSizeConstants.fontSize24))
                                 .foregroundColor(AppColorConstants.spotifyWhiteColor)
                             Image("Spotify_Logo_RGB_White")
                                 .resizable()
-                                .frame(width: 140, height: 42)
+                                .frame(width: SpotifyLogoDimensionConstants.smallWidth, height: SpotifyLogoDimensionConstants.smallHeight)
                         }.padding(.all)
                     }
                     .background(AppColorConstants.spotifyGreenColor)
-                    .cornerRadius(40)
+                    .cornerRadius(AppCornerRadiusConstants.cornerRadius40)
                     NavigationLink(destination: mainScreen,
                                    isActive: $isActive,
                                    label: { EmptyView() })

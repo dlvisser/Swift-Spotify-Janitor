@@ -25,7 +25,7 @@ struct TrackScreen: View {
             VStack(alignment: .leading){
                 if(expanded) {
                     Text("These songs don't feel heard...")
-                        .font(Font.custom("Poppins-ExtraBold", size: 32))
+                        .font(Font.custom(AppFontNameConstants.poppinsExtraBold, size: AppFontSizeConstants.fontSize32))
                         .multilineTextAlignment(.leading)
                         .padding(.horizontal)
                 }

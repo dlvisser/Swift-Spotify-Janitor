@@ -8,21 +8,21 @@
 import SwiftUI
 
 struct TrackList: View {
-    @EnvironmentObject var modelData : ModelData
-    
+    @EnvironmentObject var modelData: ModelData
+
     var body: some View {
-        ScrollView{
-            ForEach(modelData.trackResponse.tItems.reversed(), id: \.track.id){ trackItem in
+        ScrollView {
+            ForEach(modelData.trackResponse.tItems.reversed(), id: \.track.id) { trackItem in
                 TrackRow(track: trackItem.track)
             }
         }
-        .preferredColorScheme(.dark)
+                .preferredColorScheme(.dark)
     }
 }
 
 struct TrackList_Previews: PreviewProvider {
     static var previews: some View {
         TrackList()
-            .environmentObject(ModelData())
+                .environmentObject(ModelData())
     }
 }

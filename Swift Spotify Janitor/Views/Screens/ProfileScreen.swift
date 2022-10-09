@@ -33,19 +33,7 @@ struct ProfileScreen: View {
                     .padding(.horizontal)
             VStack(alignment: .center) {
                 Spacer()
-                Button(action: openSpotifyLogOutSession) {
-                    HStack {
-                        Text("Log out of")
-                                .font(Font.custom(AppFontNameConstants.poppinsExtraBold, size: AppFontSizeConstants.fontSize24))
-                                .foregroundColor(AppColorConstants.spotifyWhiteColor)
-                        Image("Spotify_Logo_RGB_White")
-                                .resizable()
-                                .frame(width: SpotifyLogoDimensionConstants.smallWidth, height: SpotifyLogoDimensionConstants.smallHeight)
-                    }
-                            .padding(.all)
-                }
-                        .background(AppColorConstants.spotifyGreenColor)
-                        .cornerRadius(AppCornerRadiusConstants.cornerRadius40)
+                AuthenticationButton(type: AuthenticationButton.AuthenticationType.Logout, buttonAction: openSpotifyLogOutSession)
                 NavigationLink(
                         destination: loginScreen,
                         isActive: $isReturned,
@@ -60,7 +48,13 @@ struct ProfileScreen: View {
         NetworkManager.shared.accessToken = AccessTokenResponse.sample
         let defaults = UserDefaults.standard
         defaults.removeObject(forKey: UserDefaultConstants.refreshToken)
-        UIApplication.shared.open(URL(string: "https://accounts.spotify.com/logout")!)
+        
+        var urlComponent = URLComponents()
+        urlComponent.scheme = "https"
+        urlComponent.host = "accounts.spotify.com"
+        urlComponent.path = "/logout"
+        
+        UIApplication.shared.open(URL(string: urlComponent.string!)!)
         isReturned = true
     }
 }

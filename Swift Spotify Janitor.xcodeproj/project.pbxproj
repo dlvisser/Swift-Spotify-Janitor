@@ -45,6 +45,7 @@
 		D4E6257E28BBE5FD009EAC2A /* ImageData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E6257D28BBE5FD009EAC2A /* ImageData.swift */; };
 		D4E9E40D28BE970D00E92472 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E9E40C28BE970D00E92472 /* Profile.swift */; };
 		D4E9E41028BE9A1B00E92472 /* ProfileTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E9E40F28BE9A1B00E92472 /* ProfileTag.swift */; };
+		D4FE0ADA28F34CA700595655 /* AuthenticationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FE0AD928F34CA700595655 /* AuthenticationButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		D4E6257D28BBE5FD009EAC2A /* ImageData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageData.swift; sourceTree = "<group>"; };
 		D4E9E40C28BE970D00E92472 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		D4E9E40F28BE9A1B00E92472 /* ProfileTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTag.swift; sourceTree = "<group>"; };
+		D4FE0AD928F34CA700595655 /* AuthenticationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,6 +316,7 @@
 				D4E6258228BBF1E9009EAC2A /* Album */,
 				D4E9E41228BEB4A200E92472 /* Profile */,
 				D41A6B0828F0696200EFAD77 /* Track */,
+				D4FE0AD928F34CA700595655 /* AuthenticationButton.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -488,6 +491,7 @@
 				D466993328E8CD4400E366C7 /* AppConstants.swift in Sources */,
 				D41A6B0528F0644200EFAD77 /* TrackItem.swift in Sources */,
 				D4E6257628BBC0A7009EAC2A /* AlbumList.swift in Sources */,
+				D4FE0ADA28F34CA700595655 /* AuthenticationButton.swift in Sources */,
 				D4E6257C28BBE226009EAC2A /* Artist.swift in Sources */,
 				D4123B7D28E9F4D9007EA79B /* AccessTokenResponse.swift in Sources */,
 				D466992F28E8CC0B00E366C7 /* MainScreen.swift in Sources */,

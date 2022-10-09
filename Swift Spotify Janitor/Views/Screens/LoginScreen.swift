@@ -48,19 +48,7 @@ struct LoginScreen: View {
                         .font(Font.custom(AppFontNameConstants.poppinsLight, size: AppFontSizeConstants.fontSize14))
                             .padding(.all)
                             .multilineTextAlignment(.center)
-                    Button(action: openSpotifyAuthentication) {
-                        HStack {
-                            Text("Log in with")
-                                    .font(Font.custom(AppFontNameConstants.poppinsExtraBold, size: AppFontSizeConstants.fontSize24))
-                                    .foregroundColor(AppColorConstants.spotifyWhiteColor)
-                            Image("Spotify_Logo_RGB_White")
-                                    .resizable()
-                                    .frame(width: SpotifyLogoDimensionConstants.smallWidth, height: SpotifyLogoDimensionConstants.smallHeight)
-                        }
-                                .padding(.all)
-                    }
-                            .background(AppColorConstants.spotifyGreenColor)
-                            .cornerRadius(AppCornerRadiusConstants.cornerRadius40)
+                    AuthenticationButton(type: AuthenticationButton.AuthenticationType.Login, buttonAction: openSpotifyAuthentication)
                     NavigationLink(destination: mainScreen,
                             isActive: $isActive,
                             label: { EmptyView() })
@@ -76,7 +64,7 @@ struct LoginScreen: View {
                 .navigationBarBackButtonHidden(true)
                 .preferredColorScheme(.dark)
     }
-
+    
     func openSpotifyAuthentication() {
         var urlComponents = URLComponents()
         urlComponents.scheme = "https"
@@ -86,7 +74,7 @@ struct LoginScreen: View {
             URLQueryItem(name: "client_id", value: "db3571c8b48049b595fa9acb17be9d3a"),
             URLQueryItem(name: "response_type", value: "code"),
             URLQueryItem(name: "redirect_uri", value: "swiftspotifyjanitor://callback"),
-            URLQueryItem(name: "scope", value: "scope=user-library-modify user-read-private user-library-read"),
+            URLQueryItem(name: "scope", value: "user-library-modify user-read-private user-library-read"),
             URLQueryItem(name: "show_dialog", value: "true")
         ]
         

@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct TrackItem: Codable{
-    var addedDate : String
-    var track : Track
-    
-    private enum CodingKeys : String, CodingKey{
+struct TrackItem: Codable {
+    var addedDate: String
+    var track: Track
+
+    private enum CodingKeys: String, CodingKey {
         case addedDate = "added_at", track
     }
 }

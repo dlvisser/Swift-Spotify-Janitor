@@ -6,9 +6,16 @@
 //
 
 import SwiftUI
+import os
 
 @main
 struct Swift_Spotify_JanitorApp: App {
+    
+    private let logger = Logger(
+        subsystem: Bundle.main.bundleIdentifier!,
+        category: String(describing: NetworkManager.self)
+    )
+    
     @StateObject private var modelData = ModelData()
     @StateObject var networkManager = NetworkManager.shared
     
@@ -36,14 +43,14 @@ struct Swift_Spotify_JanitorApp: App {
          guard let components = NSURLComponents(url: url, resolvingAgainstBaseURL: true),
              let path = components.path,
              let params = components.queryItems else {
-                 print("Invalid URL or album path missing")
-                 return "Empty"
+                self.logger.error("Invalid URL or album path missing")
+                return "Empty"
          }
 
          if let authToken = params.first(where: { $0.name == "code" })?.value {
              return authToken
          } else {
-             print("AuthToken missing")
+             self.logger.error("AuthToken missing in url")
              return "Empty"
          }
      }

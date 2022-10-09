@@ -48,6 +48,7 @@
 		D4FE0ADA28F34CA700595655 /* AuthenticationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FE0AD928F34CA700595655 /* AuthenticationButton.swift */; };
 		D4FE0ADD28F354FB00595655 /* GradientTopBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FE0ADC28F354FB00595655 /* GradientTopBox.swift */; };
 		D4FE0ADF28F358CF00595655 /* AppColorGradientImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FE0ADE28F358CF00595655 /* AppColorGradientImage.swift */; };
+		D4FE0AE128F35E3200595655 /* ItemActionButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FE0AE028F35E3200595655 /* ItemActionButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -113,6 +114,7 @@
 		D4FE0AD928F34CA700595655 /* AuthenticationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationButton.swift; sourceTree = "<group>"; };
 		D4FE0ADC28F354FB00595655 /* GradientTopBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTopBox.swift; sourceTree = "<group>"; };
 		D4FE0ADE28F358CF00595655 /* AppColorGradientImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppColorGradientImage.swift; sourceTree = "<group>"; };
+		D4FE0AE028F35E3200595655 /* ItemActionButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemActionButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -315,14 +317,12 @@
 		D4E6258128BBF1DF009EAC2A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D4FE0AE228F3690C00595655 /* Components */,
 				D466992D28E8CBDC00E366C7 /* Screens */,
 				D4C846A728B802F4000B2C2F /* ContentView.swift */,
 				D4E6258228BBF1E9009EAC2A /* Album */,
 				D4E9E41228BEB4A200E92472 /* Profile */,
 				D41A6B0828F0696200EFAD77 /* Track */,
-				D4FE0AD928F34CA700595655 /* AuthenticationButton.swift */,
-				D4FE0ADC28F354FB00595655 /* GradientTopBox.swift */,
-				D4FE0ADE28F358CF00595655 /* AppColorGradientImage.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -350,6 +350,17 @@
 				D4E9E40F28BE9A1B00E92472 /* ProfileTag.swift */,
 			);
 			path = Profile;
+			sourceTree = "<group>";
+		};
+		D4FE0AE228F3690C00595655 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				D4FE0AE028F35E3200595655 /* ItemActionButton.swift */,
+				D4FE0AD928F34CA700595655 /* AuthenticationButton.swift */,
+				D4FE0ADC28F354FB00595655 /* GradientTopBox.swift */,
+				D4FE0ADE28F358CF00595655 /* AppColorGradientImage.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -494,6 +505,7 @@
 				D4E9E41028BE9A1B00E92472 /* ProfileTag.swift in Sources */,
 				D4C846A828B802F4000B2C2F /* ContentView.swift in Sources */,
 				D4C846A628B802F4000B2C2F /* Swift_Spotify_JanitorApp.swift in Sources */,
+				D4FE0AE128F35E3200595655 /* ItemActionButton.swift in Sources */,
 				D466993328E8CD4400E366C7 /* AppConstants.swift in Sources */,
 				D41A6B0528F0644200EFAD77 /* TrackItem.swift in Sources */,
 				D4E6257628BBC0A7009EAC2A /* AlbumList.swift in Sources */,

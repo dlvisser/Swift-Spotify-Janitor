@@ -9,8 +9,7 @@ import SwiftUI
 
 struct AlbumRow: View {
     var album: Album
-    @State var isAlerted = false
-
+    
     var body: some View {
         HStack() {
             AsyncImage(url: URL(string: album.images[1].url)) { image in
@@ -18,64 +17,30 @@ struct AlbumRow: View {
             } placeholder: {
                 ProgressView()
             }
-                    .frame(width: AppDimensionConstants.dimension128, height: AppDimensionConstants.dimension128)
+            .frame(width: AppDimensionConstants.dimension128, height: AppDimensionConstants.dimension128)
             VStack(alignment: .leading) {
                 Text(album.name)
-                        .font(Font.custom(AppFontNameConstants.poppinsExtraBold, size: AppFontSizeConstants.fontSize16))
-                        .lineLimit(1)
+                    .font(Font.custom(AppFontNameConstants.poppinsExtraBold, size: AppFontSizeConstants.fontSize16))
+                    .lineLimit(1)
                 Text(album.artists[0].name)
-                        .font(Font.custom(AppFontNameConstants.poppinsRegular, size: AppFontSizeConstants.fontSize16))
-                        .foregroundColor(.gray)
+                    .font(Font.custom(AppFontNameConstants.poppinsRegular, size: AppFontSizeConstants.fontSize16))
+                    .foregroundColor(.gray)
                 Spacer()
                 HStack {
-                    Button(action: { openSpotifyLink(albumUri: album.uri) }) {
-                        HStack {
-                            Image("Spotify_Icon_RGB_White")
-                                    .resizable()
-                                    .frame(width: AppDimensionConstants.dimension24, height: AppDimensionConstants.dimension24)
-                            Text("Open Spotify")
-                                    .font(Font.custom(AppFontNameConstants.poppinsExtraBold, size: AppFontSizeConstants.fontSize12))
-                                    .foregroundColor(AppColorConstants.spotifyWhiteColor)
-
-                        }
-                                .padding(.all, AppPaddingConstants.padding6)
-                    }
-                            .background(AppColorConstants.spotifyGreenColor)
-                            .cornerRadius(AppCornerRadiusConstants.cornerRadius40)
+                    ItemActionButton(type:
+                                        ItemActionType.OpenSpotify, buttonAction: {openSpotifyLink(albumUri: album.uri)}, object: album)
                     Spacer()
-                    Button(action: { alertUserUponDeletion() }) {
-                        Image("remove")
-                                .resizable()
-                                .frame(width: AppDimensionConstants.dimension24, height: AppDimensionConstants.dimension24)
-                                .foregroundColor(AppColorConstants.spotifyWhiteColor)
-                                .padding(.all, AppPaddingConstants.padding6)
-                    }
-                            .alert(isPresented: $isAlerted) {
-                                Alert(title: Text("Confirm Deletion"), message: Text("Are you sure you want to remove: \n\(album.name)"), primaryButton: .destructive(Text("Delete")) {
-                                    callForSpotifyItemDeletion(itemIDToRemove: album.id)
-                                }, secondaryButton: .cancel())
-                            }
-                            .background(AppColorConstants.appRedColor)
-                            .cornerRadius(AppCornerRadiusConstants.cornerRadius20)
+                    ItemActionButton(type: ItemActionType.Delete, buttonAction: {}, object: album)
                 }
-                        .padding(.trailing)
+                .padding(.trailing)
             }
-                    .padding(.leading)
+            .padding(.leading)
             Spacer()
         }
-                .frame(height: AppDimensionConstants.dimension128)
-                .padding(.bottom, AppPaddingConstants.padding4)
+        .frame(height: AppDimensionConstants.dimension128)
+        .padding(.bottom, AppPaddingConstants.padding4)
     }
-
-    func callForSpotifyItemDeletion(itemIDToRemove: String) {
-        // TODO: give user feedback of success.
-        NetworkManager.shared.removeItemFromSpotifyAccount(endpoint: "me/albums", itemIDToRemove: itemIDToRemove)
-    }
-
-    func alertUserUponDeletion() {
-        isAlerted = true
-    }
-
+    
     func openSpotifyLink(albumUri: String) {
         UIApplication.shared.open(URL(string: albumUri)!)
     }
@@ -83,9 +48,9 @@ struct AlbumRow: View {
 
 struct AlbumRow_Previews: PreviewProvider {
     static var albumItems = ModelData().albumResponse.aItems
-
+    
     static var previews: some View {
         AlbumRow(album: albumItems[0].album)
-                .environmentObject(ModelData())
+            .environmentObject(ModelData())
     }
 }

@@ -65,6 +65,7 @@ struct AppCornerRadiusConstants {
 
 struct AppTransitionDelayConstants {
     static let splashScreenDelay = 2.5
+    static let expandAnimationDelay = 0.6
 }
 
 struct SpotifyLogoDimensionConstants {

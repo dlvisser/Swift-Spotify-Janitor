@@ -8,34 +8,34 @@
 import SwiftUI
 
 struct ProfileScreen: View {
-
+    
     @State var isReturned = false
     let loginScreen = LoginScreen()
-
+    
     var body: some View {
         ZStack {
             GradientTopBox()
             VStack(alignment: .leading) {
                 Text("This should be you... Right?")
-                        .font(Font.custom(AppFontNameConstants.poppinsExtraBold, size: AppFontSizeConstants.fontSize32))
-                        .multilineTextAlignment(.leading)
+                    .font(Font.custom(AppFontNameConstants.poppinsExtraBold, size: AppFontSizeConstants.fontSize32))
+                    .multilineTextAlignment(.leading)
                 ProfileTag()
                 Spacer()
             }
-                    .padding(.horizontal)
+            .padding(.horizontal)
             VStack(alignment: .center) {
                 Spacer()
                 AuthenticationButton(type: AuthenticationButton.AuthenticationType.Logout, buttonAction: openSpotifyLogOutSession)
                 NavigationLink(
-                        destination: loginScreen,
-                        isActive: $isReturned,
-                        label: { EmptyView() })
+                    destination: loginScreen,
+                    isActive: $isReturned,
+                    label: { EmptyView() })
             }
-                    .padding(.bottom)
+            .padding(.bottom)
         }
-                .preferredColorScheme(.dark)
+        .preferredColorScheme(.dark)
     }
-
+    
     func openSpotifyLogOutSession() {
         NetworkManager.shared.accessToken = AccessTokenResponse.sample
         let defaults = UserDefaults.standard
@@ -55,9 +55,9 @@ struct ProfileScreen_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(DevelopmentConstant.previewdevices, id: \.self) { deviceName in
             ProfileScreen()
-                    .previewDevice(PreviewDevice(rawValue: deviceName))
-                    .previewDisplayName(deviceName)
-                    .environmentObject(ModelData())
+                .previewDevice(PreviewDevice(rawValue: deviceName))
+                .previewDisplayName(deviceName)
+                .environmentObject(ModelData())
         }
     }
 }

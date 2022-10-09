@@ -12,49 +12,39 @@ struct LoginScreen: View {
     @StateObject var networkManager = NetworkManager.shared
     @State private var isActive = false
     let mainScreen = MainScreen()
-
+    
     var body: some View {
         NavigationView {
             ZStack {
                 GradientTopBox()
                 VStack {
                     Text("Let's start cleaning up")
-                            .font(Font.custom(AppFontNameConstants.poppinsExtraBold, size: AppFontSizeConstants.fontSize40))
-                            .fontWeight(.black)
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .padding(.horizontal)
+                        .font(Font.custom(AppFontNameConstants.poppinsExtraBold, size: AppFontSizeConstants.fontSize40))
+                        .fontWeight(.black)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal)
                     Spacer()
-                    ZStack {
-                        Image("taya-iv-sBr-g8wJw5k-unsplash")
-                                .resizable()
-                                .scaledToFill()
-                                .frame(width: AppDimensionConstants.dimension256, height: AppDimensionConstants.dimension256)
-                                .clipped()
-                                .clipShape(Rectangle())
-                        Rectangle()
-                                .frame(width: AppDimensionConstants.dimension256, height: AppDimensionConstants.dimension256)
-                                .foregroundStyle(AppColorConstants.imageGradient)
-                    }
+                    AppColorGradientImage(imageName: "taya-iv-sBr-g8wJw5k-unsplash", imageWidth: AppDimensionConstants.dimension256, imageHeight: AppDimensionConstants.dimension256)
                     Spacer()
                     Text("This Spotify Janitor is in no way affiliated with Spotify AB.")
                         .font(Font.custom(AppFontNameConstants.poppinsLight, size: AppFontSizeConstants.fontSize14))
-                            .padding(.all)
-                            .multilineTextAlignment(.center)
+                        .padding(.all)
+                        .multilineTextAlignment(.center)
                     AuthenticationButton(type: AuthenticationButton.AuthenticationType.Login, buttonAction: openSpotifyAuthentication)
                     NavigationLink(destination: mainScreen,
-                            isActive: $isActive,
-                            label: { EmptyView() })
+                                   isActive: $isActive,
+                                   label: { EmptyView() })
                 }
-                        .onChange(of: networkManager.accessToken.accessToken) { newToken in
-                            modelData.loadAlbumData()
-                            modelData.loadProfileData()
-                            modelData.loadTrackData()
-                            navigateToMain()
-                        }
+                .onChange(of: networkManager.accessToken.accessToken) { newToken in
+                    modelData.loadAlbumData()
+                    modelData.loadProfileData()
+                    modelData.loadTrackData()
+                    navigateToMain()
+                }
             }
         }
-                .navigationBarBackButtonHidden(true)
-                .preferredColorScheme(.dark)
+        .navigationBarBackButtonHidden(true)
+        .preferredColorScheme(.dark)
     }
     
     func openSpotifyAuthentication() {
@@ -72,7 +62,7 @@ struct LoginScreen: View {
         
         UIApplication.shared.open(URL(string: urlComponents.string!)!)
     }
-
+    
     func navigateToMain() {
         self.isActive = true
     }
@@ -82,9 +72,9 @@ struct LoginScreen_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(DevelopmentConstant.previewdevices, id: \.self) { deviceName in
             LoginScreen()
-                    .environmentObject(ModelData())
-                    .previewDevice(PreviewDevice(rawValue: deviceName))
-                    .previewDisplayName(deviceName)
+                .environmentObject(ModelData())
+                .previewDevice(PreviewDevice(rawValue: deviceName))
+                .previewDisplayName(deviceName)
         }
     }
 }

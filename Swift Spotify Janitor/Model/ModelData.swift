@@ -7,8 +7,15 @@
 
 import Foundation
 import Combine
+import os
 
 final class ModelData : ObservableObject{
+    
+    private let logger = Logger(
+        subsystem: Bundle.main.bundleIdentifier!,
+        category: String(describing: NetworkManager.self)
+    )
+    
 //    @Published var albumResponse : AlbumResponse = load("AccountSavedAlbums.json")
     @Published var albumResponse : AlbumResponse = AlbumResponse.sample
     @Published var accountInfo : ProfileData = ProfileData.sample
@@ -17,7 +24,7 @@ final class ModelData : ObservableObject{
     
     func loadProfileData() {
         guard let url = URL(string: "https://api.spotify.com/v1/me") else{
-            print ("Failed to create URL")
+            self.logger.error("Cannot create URL")
             return
         }
 
@@ -26,9 +33,7 @@ final class ModelData : ObservableObject{
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.setValue("Bearer \(NetworkManager.shared.accessToken.accessToken)", forHTTPHeaderField: "Authorization")
         request.httpMethod = "GET"
-        
-        print("Requesting Profile Data")
-        
+                
         URLSession.shared.dataTaskPublisher(for: request)
             .tryMap { output in
                          guard let response = output.response as? HTTPURLResponse, response.statusCode == 200 else {
@@ -46,7 +51,7 @@ final class ModelData : ObservableObject{
     
     func loadAlbumData() {
         guard let url = URL(string: "https://api.spotify.com/v1/me/albums") else{
-            print ("Failed to create URL")
+            self.logger.error("Cannot create URL")
             return
         }
 
@@ -73,7 +78,7 @@ final class ModelData : ObservableObject{
     
     func loadTrackData() {
         guard let url = URL(string: "https://api.spotify.com/v1/me/tracks") else{
-            print ("Failed to create URL")
+            self.logger.error("Cannot create URL")
             return
         }
 

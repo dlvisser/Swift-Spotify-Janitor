@@ -36,11 +36,9 @@ struct MainScreen: View {
             UITabBar.appearance().scrollEdgeAppearance = appearance
         })
         .onChange(of: networkManager.accessToken.accessToken){ newToken in
-            print("onchange")
             modelData.loadAlbumData()
             modelData.loadProfileData()
             modelData.loadTrackData()
-            print("HELP")
         }
         .accentColor(AppColorConstants.spotifyWhiteColor)
         .preferredColorScheme(.dark)

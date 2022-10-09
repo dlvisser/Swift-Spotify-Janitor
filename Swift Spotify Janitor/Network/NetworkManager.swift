@@ -6,9 +6,14 @@
 //
 
 import Foundation
+import os
 
 class NetworkManager : ObservableObject{
     
+    private let logger = Logger(
+        subsystem: Bundle.main.bundleIdentifier!,
+        category: String(describing: NetworkManager.self)
+    )
     static let shared = NetworkManager()
     private var clientId : String = "db3571c8b48049b595fa9acb17be9d3a"
     private var clientSecret : String = "ceb077815ca042468eda09f6f6e8ee80"
@@ -16,12 +21,12 @@ class NetworkManager : ObservableObject{
     @Published var accessToken : AccessTokenResponse = AccessTokenResponse.sample
     
     func handleServerError(error: HTTPURLResponse){
-        print(error)
+        self.logger.error("\(error)")
     }
     
     func requestNewAccessTokenWithAuthToken(authToken : String){
         guard let tokenURL = URL(string: "https://accounts.spotify.com/api/token") else{
-            print("Cannot create URL")
+            self.logger.error("Cannot create URL")
             return
         }
         
@@ -44,9 +49,8 @@ class NetworkManager : ObservableObject{
                 }
                 do{
                     self.accessToken = try JSONDecoder().decode(AccessTokenResponse.self, from: data)
-                    print(self.accessToken.accessToken)
                 }catch{
-                    print("Access: \(self.accessToken.accessToken)")
+                    self.logger.error("\(error)")
                 }
             }
         }
@@ -55,7 +59,7 @@ class NetworkManager : ObservableObject{
     
     func requestNewAccessTokenWithRefreshToken(refreshToken : String){
         guard let tokenURL = URL(string: "https://accounts.spotify.com/api/token") else{
-            print("Cannot create URL")
+            self.logger.error("Cannot create URL")
             return
         }
         
@@ -78,9 +82,8 @@ class NetworkManager : ObservableObject{
                 }
                 do{
                     self.accessToken = try JSONDecoder().decode(AccessTokenResponse.self, from: data)
-                    print("Refresh: \(self.accessToken.accessToken)")
                 }catch{
-                    print(error)
+                    self.logger.error("\(error)")
                 }
             }
         }
@@ -89,7 +92,7 @@ class NetworkManager : ObservableObject{
     
     func removeItemFromSpotifyAccount(endpoint: String, itemIDToRemove: String){
         guard let tokenURL = URL(string: "https://api.spotify.com/v1/\(endpoint)?ids=\(itemIDToRemove)") else{
-            print("Cannot create URL")
+            self.logger.error("Cannot create URL")
             return
         }
                 
@@ -105,9 +108,9 @@ class NetworkManager : ObservableObject{
                 }
                 do{
                     // TODO: give user feedback of success.
-                    print("Deletion successfull of: \(itemIDToRemove)")
+                    self.logger.notice("Deletion successfull of: \(itemIDToRemove)")
                 }catch{
-                    print(error)
+                    self.logger.error("\(error)")
                 }
             }
         }

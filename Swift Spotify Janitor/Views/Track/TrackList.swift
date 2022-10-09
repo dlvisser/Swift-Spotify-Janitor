@@ -15,7 +15,6 @@ struct TrackList: View {
             ForEach(modelData.trackResponse.tItems.reversed(), id: \.track.id){ trackItem in
                 TrackRow(track: trackItem.track)
             }
-            .navigationTitle("Tracks")
         }
         .preferredColorScheme(.dark)
     }

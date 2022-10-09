@@ -19,7 +19,7 @@
 		D44E26EE28EDF4530073225D /* TrackScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D44E26ED28EDF4530073225D /* TrackScreen.swift */; };
 		D466992F28E8CC0B00E366C7 /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D466992E28E8CC0B00E366C7 /* MainScreen.swift */; };
 		D466993128E8CCA700E366C7 /* LoginScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = D466993028E8CCA700E366C7 /* LoginScreen.swift */; };
-		D466993328E8CD4400E366C7 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D466993228E8CD4400E366C7 /* Constants.swift */; };
+		D466993328E8CD4400E366C7 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D466993228E8CD4400E366C7 /* AppConstants.swift */; };
 		D4C846A628B802F4000B2C2F /* Swift_Spotify_JanitorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C846A528B802F4000B2C2F /* Swift_Spotify_JanitorApp.swift */; };
 		D4C846A828B802F4000B2C2F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4C846A728B802F4000B2C2F /* ContentView.swift */; };
 		D4C846AA28B802F6000B2C2F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D4C846A928B802F6000B2C2F /* Assets.xcassets */; };
@@ -78,7 +78,7 @@
 		D45C0F5728D7225C007F6047 /* Swift-Spotify-Janitor-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "Swift-Spotify-Janitor-Info.plist"; sourceTree = SOURCE_ROOT; };
 		D466992E28E8CC0B00E366C7 /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		D466993028E8CCA700E366C7 /* LoginScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginScreen.swift; sourceTree = "<group>"; };
-		D466993228E8CD4400E366C7 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D466993228E8CD4400E366C7 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		D4C846A228B802F4000B2C2F /* Swift Spotify Janitor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Swift Spotify Janitor.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		D4C846A528B802F4000B2C2F /* Swift_Spotify_JanitorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Swift_Spotify_JanitorApp.swift; sourceTree = "<group>"; };
 		D4C846A728B802F4000B2C2F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -250,7 +250,7 @@
 			children = (
 				D4C846D128B8065C000B2C2F /* AccountInfo.json */,
 				D4C846D328B80943000B2C2F /* AccountSavedAlbums.json */,
-				D466993228E8CD4400E366C7 /* Constants.swift */,
+				D466993228E8CD4400E366C7 /* AppConstants.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -485,7 +485,7 @@
 				D4E9E41028BE9A1B00E92472 /* ProfileTag.swift in Sources */,
 				D4C846A828B802F4000B2C2F /* ContentView.swift in Sources */,
 				D4C846A628B802F4000B2C2F /* Swift_Spotify_JanitorApp.swift in Sources */,
-				D466993328E8CD4400E366C7 /* Constants.swift in Sources */,
+				D466993328E8CD4400E366C7 /* AppConstants.swift in Sources */,
 				D41A6B0528F0644200EFAD77 /* TrackItem.swift in Sources */,
 				D4E6257628BBC0A7009EAC2A /* AlbumList.swift in Sources */,
 				D4E6257C28BBE226009EAC2A /* Artist.swift in Sources */,

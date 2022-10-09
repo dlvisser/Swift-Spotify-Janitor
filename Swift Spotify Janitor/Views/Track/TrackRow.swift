@@ -16,13 +16,13 @@ struct TrackRow: View {
             AsyncImage(url: URL(string: track.album.images[1].url)){ image in image.resizable()} placeholder: {
                 ProgressView()
             }
-            .frame(width: 128, height: 128)
+            .frame(width: AppDimensionConstants.dimension128, height: AppDimensionConstants.dimension128)
             VStack(alignment: .leading){
                 Text(track.name)
-                    .font(Font.custom("Poppins-ExtraBold", size: 16))
+                    .font(Font.custom(AppFontNameConstants.poppinsExtraBold, size: AppDimensionConstants.dimension16))
                     .lineLimit(1)
                 Text(track.album.artists[0].name)
-                    .font(Font.custom("Poppins-Regular", size: 16))
+                    .font(Font.custom(AppFontNameConstants.poppinsRegular, size: AppDimensionConstants.dimension16))
                     .foregroundColor(.gray)
                 Spacer()
                 HStack{
@@ -30,36 +30,36 @@ struct TrackRow: View {
                         HStack{
                             Image("Spotify_Icon_RGB_White")
                                 .resizable()
-                                .frame(width: 24, height: 24)
+                                .frame(width: AppDimensionConstants.dimension24, height: AppDimensionConstants.dimension24)
                             Text("Open Spotify")
-                                .font(Font.custom("Poppins-ExtraBold", size: 12))
+                                .font(Font.custom(AppFontNameConstants.poppinsExtraBold, size: AppFontSizeConstants.fontSize12))
                                 .foregroundColor(AppColorConstants.spotifyWhiteColor)
                         }
-                        .padding(/*@START_MENU_TOKEN@*/.all, 6.0/*@END_MENU_TOKEN@*/)
+                        .padding(.all, AppPaddingConstants.padding6)
                     }
                     .background(AppColorConstants.spotifyGreenColor)
-                    .cornerRadius(40)
+                    .cornerRadius(AppCornerRadiusConstants.cornerRadius40)
                     Spacer()
                     Button(action: {alertUserUponDeletion()}){
                         Image("remove")
                             .resizable()
-                            .frame(width: 24, height: 24)
+                            .frame(width: AppDimensionConstants.dimension24, height: AppDimensionConstants.dimension24)
                             .foregroundColor(AppColorConstants.spotifyWhiteColor)
-                            .padding(.all, 6.0)
+                            .padding(.all, AppPaddingConstants.padding6)
                     }
                     .alert(isPresented: $isAlerted){
                         Alert(title: Text("Confirm Deletion"),message: Text("Are you sure you want to remove: \n\(track.name)") , primaryButton: .destructive(Text("Delete")){callForSpotifyItemDeletion(itemIDToRemove: track.id)} , secondaryButton: .cancel())
                     }
                     .background(AppColorConstants.appRedColor)
-                    .cornerRadius(20)
+                    .cornerRadius(AppCornerRadiusConstants.cornerRadius20)
                 }
                 .padding(.trailing)
             }
             .padding(.leading)
             Spacer()
         }
-        .frame(height: 128)
-        .padding(.bottom, 4.0)
+        .frame(height: AppDimensionConstants.dimension128)
+        .padding(.bottom, AppPaddingConstants.padding4)
     }
     
     func callForSpotifyItemDeletion(itemIDToRemove : String){

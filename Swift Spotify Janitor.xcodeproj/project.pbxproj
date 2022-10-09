@@ -209,7 +209,6 @@
 				D4DBA42C28EDC65F00CEF5D9 /* Fonts */,
 				D4DBA42628ED8F1900CEF5D9 /* Extensions */,
 				D4123B7E28E9F52F007EA79B /* Network */,
-				D466992D28E8CBDC00E366C7 /* Screens */,
 				D45C0F5728D7225C007F6047 /* Swift-Spotify-Janitor-Info.plist */,
 				D4C846A528B802F4000B2C2F /* Swift_Spotify_JanitorApp.swift */,
 				D4C846A928B802F6000B2C2F /* Assets.xcassets */,
@@ -310,6 +309,7 @@
 		D4E6258128BBF1DF009EAC2A /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				D466992D28E8CBDC00E366C7 /* Screens */,
 				D4C846A728B802F4000B2C2F /* ContentView.swift */,
 				D4E6258228BBF1E9009EAC2A /* Album */,
 				D4E9E41228BEB4A200E92472 /* Profile */,

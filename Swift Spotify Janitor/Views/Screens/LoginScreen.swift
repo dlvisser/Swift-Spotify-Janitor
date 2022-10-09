@@ -45,7 +45,7 @@ struct LoginScreen: View {
                     }
                     Spacer()
                     Text("This Spotify Janitor is in no way affiliated with Spotify AB.")
-                            .font(Font.custom("Poppins-light", size: AppFontSizeConstants.fontSize14))
+                        .font(Font.custom(AppFontNameConstants.poppinsLight, size: AppFontSizeConstants.fontSize14))
                             .padding(.all)
                             .multilineTextAlignment(.center)
                     Button(action: openSpotifyAuthentication) {
@@ -78,7 +78,19 @@ struct LoginScreen: View {
     }
 
     func openSpotifyAuthentication() {
-        UIApplication.shared.open(URL(string: "https://accounts.spotify.com/en/authorize?client_id=db3571c8b48049b595fa9acb17be9d3a&response_type=code&redirect_uri=swiftspotifyjanitor://callback&scope=user-library-modify%20user-read-private%20user-library-read&show_dialog=true")!)
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "accounts.spotify.com"
+        urlComponents.path = "/en/authorize"
+        urlComponents.queryItems = [
+            URLQueryItem(name: "client_id", value: "db3571c8b48049b595fa9acb17be9d3a"),
+            URLQueryItem(name: "response_type", value: "code"),
+            URLQueryItem(name: "redirect_uri", value: "swiftspotifyjanitor://callback"),
+            URLQueryItem(name: "scope", value: "scope=user-library-modify user-read-private user-library-read"),
+            URLQueryItem(name: "show_dialog", value: "true")
+        ]
+        
+        UIApplication.shared.open(URL(string: urlComponents.string!)!)
     }
 
     func navigateToMain() {

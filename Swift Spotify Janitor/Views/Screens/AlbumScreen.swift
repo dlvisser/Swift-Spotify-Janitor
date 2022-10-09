@@ -13,15 +13,7 @@ struct AlbumScreen: View {
 
     var body: some View {
         ZStack {
-            ZStack(alignment: .top) {
-                AppColorConstants.backgroundColor
-                GeometryReader { geo in
-                    Rectangle()
-                            .fill(AppColorConstants.backgroundGradient)
-                            .frame(width: geo.size.width, height: geo.size.height / 3)
-                }
-            }
-                    .edgesIgnoringSafeArea(.all)
+            GradientTopBox()
             VStack(alignment: .leading) {
                 if (expanded) {
                     Text("Hi there! These albums miss you!")

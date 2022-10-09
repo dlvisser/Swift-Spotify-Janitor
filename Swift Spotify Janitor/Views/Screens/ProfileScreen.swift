@@ -14,15 +14,7 @@ struct ProfileScreen: View {
 
     var body: some View {
         ZStack {
-            ZStack(alignment: .top) {
-                AppColorConstants.backgroundColor
-                GeometryReader { geo in
-                    Rectangle()
-                            .fill(AppColorConstants.backgroundGradient)
-                            .frame(width: geo.size.width, height: geo.size.height / 3)
-                }
-            }
-                    .edgesIgnoringSafeArea(.all)
+            GradientTopBox()
             VStack(alignment: .leading) {
                 Text("This should be you... Right?")
                         .font(Font.custom(AppFontNameConstants.poppinsExtraBold, size: AppFontSizeConstants.fontSize32))

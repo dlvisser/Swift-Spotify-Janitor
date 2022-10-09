@@ -16,15 +16,7 @@ struct LoginScreen: View {
     var body: some View {
         NavigationView {
             ZStack {
-                ZStack(alignment: .top) {
-                    AppColorConstants.backgroundColor
-                    GeometryReader { geo in
-                        Rectangle()
-                                .fill(AppColorConstants.backgroundGradient)
-                                .frame(width: geo.size.width, height: geo.size.height / 3)
-                    }
-                }
-                        .edgesIgnoringSafeArea(.all)
+                GradientTopBox()
                 VStack {
                     Text("Let's start cleaning up")
                             .font(Font.custom(AppFontNameConstants.poppinsExtraBold, size: AppFontSizeConstants.fontSize40))

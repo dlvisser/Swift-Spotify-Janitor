@@ -46,6 +46,7 @@
 		D4E9E40D28BE970D00E92472 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E9E40C28BE970D00E92472 /* Profile.swift */; };
 		D4E9E41028BE9A1B00E92472 /* ProfileTag.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4E9E40F28BE9A1B00E92472 /* ProfileTag.swift */; };
 		D4FE0ADA28F34CA700595655 /* AuthenticationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FE0AD928F34CA700595655 /* AuthenticationButton.swift */; };
+		D4FE0ADD28F354FB00595655 /* GradientTopBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = D4FE0ADC28F354FB00595655 /* GradientTopBox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +110,7 @@
 		D4E9E40C28BE970D00E92472 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		D4E9E40F28BE9A1B00E92472 /* ProfileTag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileTag.swift; sourceTree = "<group>"; };
 		D4FE0AD928F34CA700595655 /* AuthenticationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenticationButton.swift; sourceTree = "<group>"; };
+		D4FE0ADC28F354FB00595655 /* GradientTopBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GradientTopBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -317,6 +319,7 @@
 				D4E9E41228BEB4A200E92472 /* Profile */,
 				D41A6B0828F0696200EFAD77 /* Track */,
 				D4FE0AD928F34CA700595655 /* AuthenticationButton.swift */,
+				D4FE0ADC28F354FB00595655 /* GradientTopBox.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -509,6 +512,7 @@
 				D44E26EA28EDF3AC0073225D /* AlbumScreen.swift in Sources */,
 				D4E6257228BBBEF3009EAC2A /* ModelData.swift in Sources */,
 				D41A6B0228F063EF00EFAD77 /* TracksResponse.swift in Sources */,
+				D4FE0ADD28F354FB00595655 /* GradientTopBox.swift in Sources */,
 				D4DBA42828ED8F2D00CEF5D9 /* ColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

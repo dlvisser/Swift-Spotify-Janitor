@@ -17,8 +17,8 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ForEach(DevelopmentConstant.previewdevices, id: \.self) { deviceName in
             ContentView()
-                .previewDevice(PreviewDevice(rawValue: deviceName))
-                .previewDisplayName(deviceName)
+                    .previewDevice(PreviewDevice(rawValue: deviceName))
+                    .previewDisplayName(deviceName)
         }
     }
 }

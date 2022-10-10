@@ -16,40 +16,33 @@ struct SplashScreen: View {
     
     init(isActive: Bool = false) {
         self.isActive = isActive
-        if (defaults.string(forKey: "User_Refresh_Token") != nil){
+        if (defaults.string(forKey: UserDefaultConstants.refreshToken) != nil) {
             self.hasToken = true
         }
     }
     
     var body: some View {
         NavigationView {
-            ZStack{
-                ZStack{
+            ZStack {
+                ZStack {
                     AppColorConstants.backgroundColor
                 }
                 .edgesIgnoringSafeArea(.all)
                 VStack(alignment: .center) {
                     Image("Spotify_Icon_RGB_Green")
                         .resizable()
-                        .frame(width: 256, height: 256)
+                        .frame(width: AppDimensionConstants.dimension256, height: AppDimensionConstants.dimension256)
                     Text("Spotify Janitor")
-                        .font(Font.custom("Poppins-ExtraBold", size: 40))
-                        .foregroundColor(Color.init(hex: "1DB954"))
-                    if(hasToken){
-                        NavigationLink(destination: main,
-                                       isActive: $isActive,
-                                       label: { EmptyView() })
-                    }else{
-                        NavigationLink(destination: login,
-                                       isActive: $isActive,
-                                       label: { EmptyView() })
-                    }
+                        .font(Font.custom(AppFontNameConstants.poppinsExtraBold, size: AppFontSizeConstants.fontSize40))
+                        .foregroundColor(AppColorConstants.spotifyGreenColor)
+                    NavigationLink(destination: hasToken == true ? AnyView(main) : AnyView(login),
+                                   isActive: $isActive,
+                                   label: { EmptyView() })
                 }
                 .onAppear(perform: {
-                    if(hasToken){
-                        continueToMainScreen(time: 2.5)
-                    }else{
-                        continueToLoginScreen(time: 2.5)
+                    switch(hasToken){
+                        case true: continueToMainScreen(time: AppTransitionDelayConstants.splashScreenDelay)
+                        case false: continueToLoginScreen(time: AppTransitionDelayConstants.splashScreenDelay)
                     }
                 })
             }
@@ -57,16 +50,16 @@ struct SplashScreen: View {
         .preferredColorScheme(.dark)
     }
     
-    func continueToLoginScreen(time: Double){
+    func continueToLoginScreen(time: Double) {
         DispatchQueue.main.asyncAfter(deadline: .now() + Double(time)) {
             self.isActive = true
         }
     }
     
-    func continueToMainScreen(time: Double){
+    func continueToMainScreen(time: Double) {
         DispatchQueue.main.asyncAfter(deadline: .now() + Double(time)) {
             self.isActive = true
-            let refreshToken : String = defaults.string(forKey: "User_Refresh_Token")!
+            let refreshToken: String = defaults.string(forKey: UserDefaultConstants.refreshToken)!
             NetworkManager.shared.requestNewAccessTokenWithRefreshToken(refreshToken: refreshToken)
         }
     }

@@ -8,78 +8,62 @@
 import SwiftUI
 
 struct LoginScreen: View {
-    @EnvironmentObject var modelData : ModelData
+    @EnvironmentObject var modelData: ModelData
     @StateObject var networkManager = NetworkManager.shared
     @State private var isActive = false
     let mainScreen = MainScreen()
     
     var body: some View {
         NavigationView {
-            ZStack{
-                ZStack(alignment: .top){
-                    AppColorConstants.backgroundColor
-                    GeometryReader{ geo in
-                        Rectangle()
-                            .fill(AppColorConstants.backgroundGradient)
-                            .frame(width: geo.size.width, height: geo.size.height/3)
-                    }
-                }
-                .edgesIgnoringSafeArea(.all)
+            ZStack {
+                GradientTopBox()
                 VStack {
                     Text("Let's start cleaning up")
-                        .font(Font.custom("Poppins-ExtraBold", size: 40))
+                        .font(Font.custom(AppFontNameConstants.poppinsExtraBold, size: AppFontSizeConstants.fontSize40))
                         .fontWeight(.black)
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(.horizontal)
                     Spacer()
-                    ZStack{
-                        Image("taya-iv-sBr-g8wJw5k-unsplash")
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 256, height: 256)
-                            .clipped()
-                            .clipShape(Rectangle())
-                        Rectangle()
-                            .frame(width: 256, height: 256)
-                            .foregroundStyle(AppColorConstants.imageGradient)
-                    }
+                    AppColorGradientImage(imageName: "taya-iv-sBr-g8wJw5k-unsplash", imageWidth: AppDimensionConstants.dimension256, imageHeight: AppDimensionConstants.dimension256)
                     Spacer()
                     Text("This Spotify Janitor is in no way affiliated with Spotify AB.")
-                        .font(Font.custom("Poppins-light", size: 14))
+                        .font(Font.custom(AppFontNameConstants.poppinsLight, size: AppFontSizeConstants.fontSize14))
                         .padding(.all)
                         .multilineTextAlignment(.center)
-                    Button(action: openSpotifyAuthentication){
-                        HStack{
-                            Text("Log in with")
-                                .font(Font.custom("Poppins-ExtraBold", size: 24))
-                                .foregroundColor(AppColorConstants.spotifyWhiteColor)
-                            Image("Spotify_Logo_RGB_White")
-                                .resizable()
-                                .frame(width: 140, height: 42)
-                        }.padding(.all)
-                    }
-                    .background(AppColorConstants.spotifyGreenColor)
-                    .cornerRadius(40)
+                    AuthenticationButton(type: AuthenticationButton.AuthenticationType.Login, buttonAction: openSpotifyAuthentication)
                     NavigationLink(destination: mainScreen,
                                    isActive: $isActive,
                                    label: { EmptyView() })
                 }
-                .onChange(of: networkManager.accessToken.accessToken){ newToken in
+                .onChange(of: networkManager.accessToken.accessToken) { newToken in
                     modelData.loadAlbumData()
                     modelData.loadProfileData()
                     modelData.loadTrackData()
-                    navigateToMain()}
+                    navigateToMain()
+                }
             }
         }
         .navigationBarBackButtonHidden(true)
         .preferredColorScheme(.dark)
     }
     
-    func openSpotifyAuthentication(){
-        UIApplication.shared.open(URL(string: "https://accounts.spotify.com/en/authorize?client_id=db3571c8b48049b595fa9acb17be9d3a&response_type=code&redirect_uri=swiftspotifyjanitor://callback&scope=user-library-modify%20user-read-private%20user-library-read&show_dialog=true")!)
+    func openSpotifyAuthentication() {
+        var urlComponents = URLComponents()
+        urlComponents.scheme = "https"
+        urlComponents.host = "accounts.spotify.com"
+        urlComponents.path = "/en/authorize"
+        urlComponents.queryItems = [
+            URLQueryItem(name: "client_id", value: "db3571c8b48049b595fa9acb17be9d3a"),
+            URLQueryItem(name: "response_type", value: "code"),
+            URLQueryItem(name: "redirect_uri", value: "swiftspotifyjanitor://callback"),
+            URLQueryItem(name: "scope", value: "user-library-modify user-read-private user-library-read"),
+            URLQueryItem(name: "show_dialog", value: "true")
+        ]
+        
+        UIApplication.shared.open(URL(string: urlComponents.string!)!)
     }
     
-    func navigateToMain(){
+    func navigateToMain() {
         self.isActive = true
     }
 }

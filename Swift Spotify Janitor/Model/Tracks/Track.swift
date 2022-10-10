@@ -7,11 +7,11 @@
 
 import Foundation
 
-struct Track : Codable{
-    var uri : String
-    var album : Album
-    var popularity : Int
-    var id : String
-    var name : String
-    
+struct Track: Codable {
+    var uri: String
+    var album: Album
+    var popularity: Int
+    var id: String
+    var name: String
+
 }

@@ -13,19 +13,11 @@ struct ProfileScreen: View {
     let loginScreen = LoginScreen()
     
     var body: some View {
-        ZStack{
-            ZStack(alignment: .top){
-                AppColorConstants.backgroundColor
-                GeometryReader{ geo in
-                    Rectangle()
-                        .fill(AppColorConstants.backgroundGradient)
-                        .frame(width: geo.size.width, height: geo.size.height/3)
-                }
-            }
-            .edgesIgnoringSafeArea(.all)
-            VStack(alignment: .leading){
+        ZStack {
+            GradientTopBox()
+            VStack(alignment: .leading) {
                 Text("This should be you... Right?")
-                    .font(Font.custom("Poppins-ExtraBold", size: 32))
+                    .font(Font.custom(AppFontNameConstants.poppinsExtraBold, size: AppFontSizeConstants.fontSize32))
                     .multilineTextAlignment(.leading)
                 ProfileTag()
                 Spacer()
@@ -33,33 +25,28 @@ struct ProfileScreen: View {
             .padding(.horizontal)
             VStack(alignment: .center) {
                 Spacer()
-                Button(action: openSpotifyLogOutSession){
-                    HStack{
-                        Text("Log out of")
-                            .font(Font.custom("Poppins-ExtraBold", size: 24))
-                            .foregroundColor(AppColorConstants.spotifyWhiteColor)
-                        Image("Spotify_Logo_RGB_White")
-                            .resizable()
-                            .frame(width: 140, height: 42)
-                    }.padding(.all)
-                }
-                .background(AppColorConstants.spotifyGreenColor)
-                .cornerRadius(40)
+                AuthenticationButton(type: AuthenticationButton.AuthenticationType.Logout, buttonAction: openSpotifyLogOutSession)
                 NavigationLink(
                     destination: loginScreen,
                     isActive: $isReturned,
-                    label: {EmptyView()})
+                    label: { EmptyView() })
             }
             .padding(.bottom)
         }
         .preferredColorScheme(.dark)
     }
     
-    func openSpotifyLogOutSession(){
+    func openSpotifyLogOutSession() {
         NetworkManager.shared.accessToken = AccessTokenResponse.sample
         let defaults = UserDefaults.standard
-        defaults.removeObject(forKey: "User_Refresh_Token")
-        UIApplication.shared.open(URL(string: "https://accounts.spotify.com/logout")!)
+        defaults.removeObject(forKey: UserDefaultConstants.refreshToken)
+        
+        var urlComponent = URLComponents()
+        urlComponent.scheme = "https"
+        urlComponent.host = "accounts.spotify.com"
+        urlComponent.path = "/logout"
+        
+        UIApplication.shared.open(URL(string: urlComponent.string!)!)
         isReturned = true
     }
 }
